@@ -14,6 +14,7 @@
       "version": "0.0.0",
       "dependencies": {
         "@hono/node-server": "^1.19.2",
+        "@hono/swagger-ui": "^0.4.0",
         "@hono_expense_tracker/schemas": "workspace:*",
         "hono": "^4.9.6",
       },
@@ -192,6 +193,8 @@
     "@eslint/plugin-kit": ["@eslint/plugin-kit@0.3.5", "", { "dependencies": { "@eslint/core": "^0.15.2", "levn": "^0.4.1" } }, "sha512-Z5kJ+wU3oA7MMIqVR9tyZRtjYPr4OC004Q4Rw7pgOKUOKkJfZ3O24nz3WYfGRpMDNmcOi3TwQOmgm7B7Tpii0w=="],
 
     "@hono/node-server": ["@hono/node-server@1.19.4", "", { "peerDependencies": { "hono": "^4" } }, "sha512-AWKQZ/YkHUBSHeL/5Ld8FWgUs6wFf4TxGYxqp9wLZxRdFuHBpXmgOq+CuDoL4vllkZLzovCf5HBJnypiy3EtHA=="],
+
+    "@hono/swagger-ui": ["@hono/swagger-ui@0.4.1", "", { "peerDependencies": { "hono": "*" } }, "sha512-kPaJatHffeYQ3yVkHo878hCqwfapqx54FczJVJ+eRWt8J4biyVVMIdCAJb6MyA8bcnHUoTmUpPc7OJAV1VTg2g=="],
 
     "@hono_expense_tracker/api": ["@hono_expense_tracker/api@workspace:apps/api"],
 
