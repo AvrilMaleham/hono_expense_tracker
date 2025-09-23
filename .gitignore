@@ -139,7 +139,9 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 # files to ignore
-.env*
+.env
+.env.local
+.env.production
 .turbo/
 *.tsbuildinfo
 dist/
@@ -149,4 +151,4 @@ mlruns/
 .idea/*
 
 # files to keep
-!.env-example
+!.env.example

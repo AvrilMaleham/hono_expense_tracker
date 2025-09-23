@@ -14,10 +14,21 @@ import type {
 const app = new Hono();
 
 // Add CORS middleware
+const allowedOrigins =
+  process.env.NODE_ENV === "production"
+    ? [
+        process.env.CORS_ORIGIN || "https://yourapp.com",
+        "https://www.yourapp.com",
+      ]
+    : [
+        process.env.CORS_ORIGIN || "http://localhost:5173",
+        "http://localhost:3000",
+      ];
+
 app.use(
   "*",
   cors({
-    origin: ["http://localhost:5173", "http://localhost:3000"],
+    origin: allowedOrigins,
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowHeaders: ["Content-Type", "Authorization"],
   })
