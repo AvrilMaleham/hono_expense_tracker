@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { swaggerUI } from "@hono/swagger-ui";
+import { logger } from "hono/logger";
 import { rpcApp, type AppType } from "./rpc";
 import type {
   Expense,
@@ -29,6 +30,7 @@ const allowedOrigins =
 
 app.use(
   "*",
+  logger(),
   cors({
     origin: allowedOrigins,
     allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
