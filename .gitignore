@@ -137,3 +137,16 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# files to ignore
+.env*
+.turbo/
+*.tsbuildinfo
+dist/
+node_modules/
+*.code-workspace
+mlruns/
+.idea/*
+
+# files to keep
+!.env-example

@@ -1,0 +1,15 @@
+{
+  "name": "@hono_expense_tracker/schemas",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "bunx --bun tsc",
+    "typecheck": "bunx --bun tsc"
+  },
+  "devDependencies": {
+    "@tsconfig/bun": "^1.0.7",
+    "typescript": "^5.8.3"
+  }
+}

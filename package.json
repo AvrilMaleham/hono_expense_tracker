@@ -1,0 +1,25 @@
+{
+  "name": "hono_expense_tracker",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "packageManager": "bun@1.2.9",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "dev:api": "cd apps/api && bun run dev",
+    "dev:ui": "cd apps/ui && bun run dev",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "turbo": "^2.5.6",
+    "typescript": "^5"
+  }
+}
