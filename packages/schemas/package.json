@@ -8,6 +8,9 @@
     "build": "bunx --bun tsc",
     "typecheck": "bunx --bun tsc"
   },
+  "dependencies": {
+    "zod": "^3.22.4"
+  },
   "devDependencies": {
     "@tsconfig/bun": "^1.0.7",
     "typescript": "^5.8.3"

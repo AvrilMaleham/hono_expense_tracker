@@ -15,8 +15,10 @@
       "dependencies": {
         "@hono/node-server": "^1.19.2",
         "@hono/swagger-ui": "^0.4.0",
+        "@hono/zod-validator": "^0.2.1",
         "@hono_expense_tracker/schemas": "workspace:*",
         "hono": "^4.9.6",
+        "zod": "^3.22.4",
       },
       "devDependencies": {
         "@types/bun": "latest",
@@ -31,6 +33,7 @@
         "@tanstack/react-query": "^5.87.4",
         "@tanstack/react-router": "^1.131.41",
         "@tanstack/router-devtools": "^1.131.41",
+        "hono": "^4.9.6",
         "react": "^19.1.1",
         "react-dom": "^19.1.1",
       },
@@ -55,6 +58,9 @@
     "packages/schemas": {
       "name": "@hono_expense_tracker/schemas",
       "version": "0.0.0",
+      "dependencies": {
+        "zod": "^3.22.4",
+      },
       "devDependencies": {
         "@tsconfig/bun": "^1.0.7",
         "typescript": "^5.8.3",
@@ -195,6 +201,8 @@
     "@hono/node-server": ["@hono/node-server@1.19.4", "", { "peerDependencies": { "hono": "^4" } }, "sha512-AWKQZ/YkHUBSHeL/5Ld8FWgUs6wFf4TxGYxqp9wLZxRdFuHBpXmgOq+CuDoL4vllkZLzovCf5HBJnypiy3EtHA=="],
 
     "@hono/swagger-ui": ["@hono/swagger-ui@0.4.1", "", { "peerDependencies": { "hono": "*" } }, "sha512-kPaJatHffeYQ3yVkHo878hCqwfapqx54FczJVJ+eRWt8J4biyVVMIdCAJb6MyA8bcnHUoTmUpPc7OJAV1VTg2g=="],
+
+    "@hono/zod-validator": ["@hono/zod-validator@0.2.2", "", { "peerDependencies": { "hono": ">=3.9.0", "zod": "^3.19.1" } }, "sha512-dSDxaPV70Py8wuIU2QNpoVEIOSzSXZ/6/B/h4xA7eOMz7+AarKTSGV8E6QwrdcCbBLkpqfJ4Q2TmBO0eP1tCBQ=="],
 
     "@hono_expense_tracker/api": ["@hono_expense_tracker/api@workspace:apps/api"],
 
