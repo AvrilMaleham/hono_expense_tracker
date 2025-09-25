@@ -5,6 +5,7 @@ import { logger } from "hono/logger";
 import { rpcApp } from "./routes";
 import { openApiSchema } from "./config/openapi_schema";
 import type { ApiError } from "@hono_expense_tracker/schemas";
+import { healthRoutes } from "./routes/health/health";
 
 const app = new Hono();
 
@@ -35,6 +36,7 @@ app.get("/swagger", swaggerUI({ url: "/swagger.json" }));
 app.get("/swagger.json", (c) => c.json(openApiSchema));
 
 // Mount the RPC app
+app.route("/health", healthRoutes);
 app.route("/", rpcApp);
 
 // Error handling

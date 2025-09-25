@@ -7,7 +7,7 @@ const openApiSchema = {
     description: "A simple expense tracking API built with Hono",
   },
   paths: {
-    "/": {
+    "/health/check": {
       get: {
         summary: "API Health Check",
         description: "Check if the API is running",
@@ -29,7 +29,7 @@ const openApiSchema = {
         },
       },
     },
-    "/health": {
+    "/health/status": {
       get: {
         summary: "Health Status",
         description: "Get detailed health status of the API",

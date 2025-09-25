@@ -10,23 +10,6 @@ import {
 // Create the RPC app
 export const rpcApp = new Hono();
 
-// Health check
-rpcApp.get("/", (c) => {
-  return c.json({
-    message: "Hono API is running!",
-    timestamp: new Date().toISOString(),
-  });
-});
-
-// Health status
-rpcApp.get("/health", (c) => {
-  const healthData = {
-    status: "healthy",
-    uptime: process.uptime(),
-  };
-  return c.json(HealthResponseSchema.parse(healthData));
-});
-
 // Get all expenses
 rpcApp.get("/expenses", (c) => {
   // Mock data
