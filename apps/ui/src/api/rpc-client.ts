@@ -1,5 +1,5 @@
 import { hc } from "hono/client";
-import type { AppType } from "../../../api/src/rpc";
+import type { AppType } from "../../../api/src/routes";
 
 // Create the RPC client
 export const api = hc<AppType>("http://localhost:3000");
