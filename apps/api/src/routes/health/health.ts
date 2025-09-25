@@ -3,7 +3,6 @@ import { HealthResponseSchema } from "@hono_expense_tracker/schemas";
 
 export const healthRoutes = new Hono();
 
-// Health check
 healthRoutes.get("/check", (c) => {
   return c.json({
     message: "Hono API is running!",
@@ -11,7 +10,6 @@ healthRoutes.get("/check", (c) => {
   });
 });
 
-// Health status
 healthRoutes.get("/status", (c) => {
   const healthData = {
     status: "healthy",

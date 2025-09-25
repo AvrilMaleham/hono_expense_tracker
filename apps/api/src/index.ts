@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { swaggerUI } from "@hono/swagger-ui";
 import { logger } from "hono/logger";
-import { rpcApp } from "./routes";
+import { expensesRoutes } from "./routes/expenses/expenses";
 import { openApiSchema } from "./config/openapi_schema";
 import type { ApiError } from "@hono_expense_tracker/schemas";
 import { healthRoutes } from "./routes/health/health";
@@ -35,9 +35,9 @@ app.use(
 app.get("/swagger", swaggerUI({ url: "/swagger.json" }));
 app.get("/swagger.json", (c) => c.json(openApiSchema));
 
-// Mount the RPC app
+// Mount the routes
 app.route("/health", healthRoutes);
-app.route("/", rpcApp);
+app.route("/", expensesRoutes);
 
 // Error handling
 app.onError((err, c) => {

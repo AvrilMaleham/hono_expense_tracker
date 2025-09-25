@@ -1,5 +1,4 @@
-export // OpenAPI schema definition
-const openApiSchema = {
+export const openApiSchema = {
   openapi: "3.0.0",
   info: {
     title: "Expense Tracker API",
