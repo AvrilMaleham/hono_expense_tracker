@@ -6,8 +6,9 @@ import { expensesRoutes } from "./routes/expenses/expenses";
 import { openApiSchema } from "./config/openapi_schema";
 import type { ApiError } from "@hono_expense_tracker/schemas";
 import { healthRoutes } from "./routes/health/health";
+import { OpenAPIHono, createRoute, z } from "@hono/zod-openapi";
 
-const app = new Hono();
+const app = new OpenAPIHono();
 
 // Add CORS middleware
 const allowedOrigins =
@@ -31,9 +32,38 @@ app.use(
   })
 );
 
+// The openapi.json will be available at /doc
+app.doc("/doc", {
+  openapi: "3.0.0",
+  info: {
+    version: "1.0.0",
+    title: "My API",
+  },
+});
+
+const basicRoute = createRoute({
+  method: "get",
+  path: "/basic/",
+  responses: {
+    200: {
+      content: {
+        "application/json": {
+          schema: z.object({
+            hello: z.string(),
+          }),
+        },
+      },
+      description: "say hello",
+    },
+  },
+});
+
+app.openapi(basicRoute, (c) => {
+  return c.json({ hello: "world" }, 200);
+});
+
 // Add Swagger UI
-app.get("/swagger", swaggerUI({ url: "/swagger.json" }));
-app.get("/swagger.json", (c) => c.json(openApiSchema));
+app.get("/ui", swaggerUI({ url: "/doc" }));
 
 // Mount the routes
 app.route("/health", healthRoutes);
