@@ -6,28 +6,6 @@ export const openApiSchema = {
     description: "A simple expense tracking API built with Hono",
   },
   paths: {
-    "/health/check": {
-      get: {
-        summary: "API Health Check",
-        description: "Check if the API is running",
-        responses: {
-          "200": {
-            description: "API is running",
-            content: {
-              "application/json": {
-                schema: {
-                  type: "object",
-                  properties: {
-                    message: { type: "string" },
-                    timestamp: { type: "string", format: "date-time" },
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
-    },
     "/health/status": {
       get: {
         summary: "Health Status",
