@@ -5,6 +5,8 @@ import type { ApiError } from "@hono_expense_tracker/schemas";
 import { OpenAPIHono } from "@hono/zod-openapi";
 import { app as healthCheckApp } from "./routes/health/get-health-check";
 import { app as healthStatusApp } from "./routes/health/get-health-status";
+import { app as getExpensesApp } from "./routes/expenses/get-expenses";
+import { app as postExpensesApp } from "./routes/expenses/post-expenses";
 
 const app = new OpenAPIHono();
 
@@ -33,6 +35,8 @@ app.use(
 // Mount the routes
 app.route("/health/check", healthCheckApp);
 app.route("/health/status", healthStatusApp);
+app.route("/expenses", getExpensesApp);
+app.route("/expenses", postExpensesApp);
 
 // The openapi.json will be available at /doc
 app.doc("/doc", {

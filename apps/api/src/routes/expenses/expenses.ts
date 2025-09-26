@@ -7,55 +7,6 @@ import {
 
 export const expensesRoutes = new Hono();
 
-expensesRoutes.get("/expenses", (c) => {
-  const expenses = [
-    {
-      id: 1,
-      description: "Coffee",
-      amount: 4.5,
-      category: "Food",
-      date: "2024-01-15",
-    },
-    {
-      id: 2,
-      description: "Gas",
-      amount: 45.0,
-      category: "Transportation",
-      date: "2024-01-14",
-    },
-    {
-      id: 3,
-      description: "Groceries",
-      amount: 85.3,
-      category: "Food",
-      date: "2024-01-13",
-    },
-  ];
-  return c.json({ expenses });
-});
-
-expensesRoutes.post(
-  "/expenses",
-  zValidator("json", CreateExpenseSchema),
-  (c) => {
-    const body = c.req.valid("json");
-    const newExpense = {
-      id: Date.now(),
-      description: body.description,
-      amount: body.amount,
-      category: body.category,
-      date: body.date ?? new Date().toISOString().split("T")[0],
-    };
-    return c.json(
-      {
-        message: "Expense created",
-        expense: newExpense,
-      },
-      201
-    );
-  }
-);
-
 expensesRoutes.get(
   "/expenses/:id",
   zValidator("param", ExpenseIdSchema),

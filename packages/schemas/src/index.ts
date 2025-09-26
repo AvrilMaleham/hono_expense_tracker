@@ -14,7 +14,7 @@ export const CreateExpenseSchema = z.object({
   description: z.string(),
   amount: z.number(),
   category: z.string(),
-  date: z.string().optional(),
+  date: z.string(),
 });
 
 export const ExpenseIdSchema = z.object({

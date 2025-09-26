@@ -15,7 +15,7 @@ const healthCheckRoute = createRoute({
           }),
         },
       },
-      description: "API is running",
+      description: "Check is API is running",
     },
   },
 });
