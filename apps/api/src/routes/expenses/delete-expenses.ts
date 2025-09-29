@@ -20,6 +20,9 @@ const deleteExpenseRoute = createRoute({
           schema: z.object({
             message: z.string(),
           }),
+          example: {
+            message: "Expense 1 deleted successfully",
+          },
         },
       },
       description: "Expense deleted successfully",

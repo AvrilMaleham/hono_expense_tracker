@@ -20,6 +20,15 @@ const getExpenseByIdRoute = createRoute({
           schema: z.object({
             expense: ExpenseSchema,
           }),
+          example: {
+            expense: {
+              id: "1",
+              description: "Coffee",
+              amount: 4.5,
+              category: "Food",
+              date: "2024-01-15",
+            },
+          },
         },
       },
       description: "Expense details",

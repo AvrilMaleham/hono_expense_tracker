@@ -1,33 +1,37 @@
 import { createRoute } from "@hono/zod-openapi";
-import { HealthResponseSchema } from "@hono_expense_tracker/schemas";
 import { z } from "@hono/zod-openapi";
+import type { Context } from "hono";
+import { HealthResponseSchema } from "@hono_expense_tracker/schemas";
 import { healthTags } from "../../config/openapi-tags";
 
 const healthStatusRoute = createRoute({
   method: "get",
   path: "/status",
+  summary: "Health Status",
+  description: "Get detailed health status of the API",
   tags: healthTags,
   responses: {
     200: {
       content: {
         "application/json": {
-          schema: z.object({
-            status: z.string(),
-            uptime: z.number(),
-          }),
+          schema: HealthResponseSchema,
+          example: {
+            status: "healthy",
+            uptime: 1234.567,
+          },
         },
       },
-      description: "Get detailed health status of the API",
+      description: "Detailed health status retrieved successfully",
     },
   },
 });
 
-const healthStatusHandler = (c: any) => {
+const healthStatusHandler = (c: Context) => {
   const healthData = {
     status: "healthy",
     uptime: process.uptime(),
   };
-  return c.json(HealthResponseSchema.parse(healthData));
+  return c.json(healthData);
 };
 
 export const healthStatusEndpoint = { healthStatusRoute, healthStatusHandler };

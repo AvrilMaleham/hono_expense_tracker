@@ -17,6 +17,24 @@ const getExpensesRoute = createRoute({
           schema: z.object({
             expenses: z.array(ExpenseSchema),
           }),
+          example: {
+            expenses: [
+              {
+                id: "1",
+                description: "Coffee",
+                amount: 4.5,
+                category: "Food",
+                date: "2024-01-15",
+              },
+              {
+                id: "2",
+                description: "Gas",
+                amount: 45.0,
+                category: "Transportation",
+                date: "2024-01-14",
+              },
+            ],
+          },
         },
       },
       description: "Retrieve all expenses",
@@ -24,7 +42,7 @@ const getExpensesRoute = createRoute({
   },
 });
 
-const getExpensesHandler = (c: any) => {
+const getExpensesHandler = (c: Context) => {
   const expenses = [
     {
       id: "1",

@@ -1,10 +1,13 @@
 import { createRoute } from "@hono/zod-openapi";
 import { z } from "@hono/zod-openapi";
+import type { Context } from "hono";
 import { healthTags } from "../../config/openapi-tags";
 
 const healthCheckRoute = createRoute({
   method: "get",
   path: "/check",
+  summary: "Health Check",
+  description: "Check if API is running",
   tags: healthTags,
   responses: {
     200: {
@@ -14,14 +17,18 @@ const healthCheckRoute = createRoute({
             message: z.string(),
             timestamp: z.string(),
           }),
+          example: {
+            message: "Hono API is running!",
+            timestamp: "2024-01-15T10:30:00.000Z",
+          },
         },
       },
-      description: "Check is API is running",
+      description: "API is running successfully",
     },
   },
 });
 
-const healthCheckHandler = (c: any) => {
+const healthCheckHandler = (c: Context) => {
   return c.json({
     message: "Hono API is running!",
     timestamp: new Date().toISOString(),
