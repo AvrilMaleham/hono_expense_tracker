@@ -3,8 +3,9 @@ import { getExpensesEndpoint } from "./get-expenses";
 import { getExpenseByIdEndpoint } from "./get-expense-by-id";
 import { postExpensesEndpoint } from "./post-expenses";
 import { deleteExpenseEndpoint } from "./delete-expenses";
+import type { HonoEnv } from "../../config/hono-context";
 
-const expensesRouter = new OpenAPIHono();
+const expensesRouter = new OpenAPIHono<HonoEnv>();
 
 expensesRouter.openapi(
   getExpensesEndpoint.getExpensesRoute,

@@ -3,7 +3,7 @@ import {
   getExpenseById,
   createExpense,
   deleteExpense,
-} from "./get-expense";
+} from "./expenses";
 
 export function createDatabaseInterface() {
   return {

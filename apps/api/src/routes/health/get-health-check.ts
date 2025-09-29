@@ -28,10 +28,13 @@ const healthCheckRoute = createRoute({
 });
 
 const healthCheckHandler = (c: Context) => {
-  return c.json({
-    message: "Hono API is running!",
-    timestamp: new Date().toISOString(),
-  });
+  return c.json(
+    {
+      message: "Hono API is running!",
+      timestamp: new Date().toISOString(),
+    },
+    200
+  );
 };
 
 export const healthCheckEndpoint = { healthCheckRoute, healthCheckHandler };

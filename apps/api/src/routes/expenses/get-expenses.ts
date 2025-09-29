@@ -48,7 +48,7 @@ const getExpensesHandler = (c: Context<HonoEnv>) => {
   const response = db.getExpense();
   const validatedResponse = ExpensesListResponseSchema.parse(response);
 
-  return c.json(validatedResponse);
+  return c.json(validatedResponse, 200);
 };
 
 export const getExpensesEndpoint = { getExpensesRoute, getExpensesHandler };

@@ -32,7 +32,7 @@ const healthStatusHandler = (c: Context) => {
     status: "healthy",
     uptime: process.uptime(),
   };
-  return c.json(healthData);
+  return c.json(healthData, 200);
 };
 
 export const healthStatusEndpoint = { healthStatusRoute, healthStatusHandler };
