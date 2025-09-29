@@ -50,15 +50,19 @@ export const createExpense = (expenseData: {
   category: string;
   date: string;
 }) => {
+  const maxId =
+    mockExpenses.length > 0
+      ? Math.max(...mockExpenses.map((exp) => parseInt(exp.id)))
+      : 0;
+
   const newExpense = {
-    id: (mockExpenses.length + 1).toString(),
+    id: (maxId + 1).toString(),
     ...expenseData,
   };
   mockExpenses.push(newExpense);
   return { message: "Expense created", expense: newExpense };
 };
 
-// Delete expense by ID
 export const deleteExpense = (id: string) => {
   const expenseIndex = mockExpenses.findIndex((exp) => exp.id === id);
   if (expenseIndex === -1) {
@@ -66,5 +70,8 @@ export const deleteExpense = (id: string) => {
   }
 
   const deletedExpense = mockExpenses.splice(expenseIndex, 1)[0];
-  return { message: `Expense ${id} deleted successfully` };
+  return {
+    message: `Expense ${id} deleted successfully`,
+    expense: deletedExpense,
+  };
 };
