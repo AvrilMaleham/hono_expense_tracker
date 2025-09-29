@@ -3,13 +3,8 @@ import { swaggerUI } from "@hono/swagger-ui";
 import { logger } from "hono/logger";
 import type { ApiError } from "@hono_expense_tracker/schemas";
 import { OpenAPIHono } from "@hono/zod-openapi";
-import { healthCheckApp, healthStatusApp } from "./routes/health";
-import {
-  getExpensesApp,
-  getExpenseByIdApp,
-  postExpensesApp,
-  deleteExpensesApp,
-} from "./routes/expenses";
+import { healthRoutes } from "./routes/health/router";
+import { expensesRoutes } from "./routes/expenses/router";
 
 const app = new OpenAPIHono();
 
@@ -36,12 +31,8 @@ app.use(
 );
 
 // Mount the routes
-app.route("/health/check", healthCheckApp);
-app.route("/health/status", healthStatusApp);
-app.route("/expenses/get", getExpensesApp);
-app.route("/expenses/get", getExpenseByIdApp);
-app.route("/expenses/post", postExpensesApp);
-app.route("/expenses/delete", deleteExpensesApp);
+app.route("/health", healthRoutes);
+app.route("/expenses", expensesRoutes);
 
 // The openapi.json will be available at /doc
 app.doc31("/doc", {

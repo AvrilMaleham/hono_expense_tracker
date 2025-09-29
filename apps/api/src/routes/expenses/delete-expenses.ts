@@ -1,9 +1,8 @@
-import { OpenAPIHono, createRoute } from "@hono/zod-openapi";
+import { createRoute } from "@hono/zod-openapi";
 import { z } from "@hono/zod-openapi";
+import type { Context } from "hono";
 import { ExpenseIdSchema } from "@hono_expense_tracker/schemas";
 import { expenseTags } from "../../config/openapi-tags";
-
-export const app = new OpenAPIHono();
 
 const deleteExpenseRoute = createRoute({
   method: "delete",
@@ -28,7 +27,7 @@ const deleteExpenseRoute = createRoute({
   },
 });
 
-app.openapi(deleteExpenseRoute, (c) => {
+const deleteExpenseHandler = (c: any) => {
   const { id } = c.req.valid("param");
 
   const numericId = parseInt(id, 10);
@@ -36,4 +35,9 @@ app.openapi(deleteExpenseRoute, (c) => {
   return c.json({
     message: `Expense ${numericId} deleted successfully`,
   });
-});
+};
+
+export const deleteExpenseEndpoint = {
+  deleteExpenseRoute,
+  deleteExpenseHandler,
+};

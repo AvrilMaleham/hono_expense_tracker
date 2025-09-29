@@ -1,12 +1,11 @@
-import { OpenAPIHono, createRoute } from "@hono/zod-openapi";
+import { createRoute } from "@hono/zod-openapi";
 import { z } from "@hono/zod-openapi";
+import type { Context } from "hono";
 import {
   CreateExpenseSchema,
   ExpenseSchema,
 } from "@hono_expense_tracker/schemas";
 import { expenseTags } from "../../config/openapi-tags";
-
-export const app = new OpenAPIHono();
 const postExpensesRoute = createRoute({
   method: "post",
   path: "/",
@@ -53,7 +52,7 @@ const postExpensesRoute = createRoute({
   },
 });
 
-app.openapi(postExpensesRoute, (c) => {
+const postExpensesHandler = (c: any) => {
   const body = c.req.valid("json");
   const newExpense = {
     id: "1",
@@ -69,4 +68,6 @@ app.openapi(postExpensesRoute, (c) => {
     },
     201
   );
-});
+};
+
+export const postExpensesEndpoint = { postExpensesRoute, postExpensesHandler };

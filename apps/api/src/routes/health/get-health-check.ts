@@ -1,11 +1,11 @@
-import { OpenAPIHono, createRoute } from "@hono/zod-openapi";
+import { createRoute } from "@hono/zod-openapi";
 import { z } from "@hono/zod-openapi";
+import type { Context } from "hono";
 import { healthTags } from "../../config/openapi-tags";
 
-export const app = new OpenAPIHono();
 const healthCheckRoute = createRoute({
   method: "get",
-  path: "/",
+  path: "/check",
   tags: healthTags,
   responses: {
     200: {
@@ -22,9 +22,11 @@ const healthCheckRoute = createRoute({
   },
 });
 
-app.openapi(healthCheckRoute, (c) => {
+const healthCheckHandler = (c: any) => {
   return c.json({
     message: "Hono API is running!",
     timestamp: new Date().toISOString(),
   });
-});
+};
+
+export const healthCheckEndpoint = { healthCheckRoute, healthCheckHandler };
