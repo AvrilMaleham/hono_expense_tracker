@@ -5,8 +5,10 @@ import type { ApiError } from "@hono_expense_tracker/schemas";
 import { OpenAPIHono } from "@hono/zod-openapi";
 import { healthRoutes } from "./routes/health/router";
 import { expensesRoutes } from "./routes/expenses/router";
+import { createDatabaseInterface } from "./services/database/database-interface";
+import type { HonoEnv } from "./config/hono-context";
 
-const app = new OpenAPIHono();
+const app = new OpenAPIHono<HonoEnv>();
 
 // Add CORS middleware
 const allowedOrigins =
@@ -29,6 +31,11 @@ app.use(
     allowHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+app.use(async (c, next) => {
+  c.set("db", createDatabaseInterface());
+  await next();
+});
 
 // Mount the routes
 app.route("/health", healthRoutes);
