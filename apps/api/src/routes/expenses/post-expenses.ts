@@ -1,14 +1,18 @@
 import { OpenAPIHono, createRoute } from "@hono/zod-openapi";
-import { z } from "zod";
+import { z } from "@hono/zod-openapi";
 import {
   CreateExpenseSchema,
   ExpenseSchema,
 } from "@hono_expense_tracker/schemas";
+import { expenseTags } from "../../config/openapi-tags";
 
 export const app = new OpenAPIHono();
 const postExpensesRoute = createRoute({
   method: "post",
   path: "/",
+  summary: "Create Expense",
+  description: "Create a new expense",
+  tags: expenseTags,
   request: {
     body: {
       content: {
@@ -35,7 +39,7 @@ const postExpensesRoute = createRoute({
           example: {
             message: "Expense created",
             expense: {
-              id: 1705334400000,
+              id: "1",
               description: "Coffee",
               amount: 4.5,
               category: "Food",
@@ -52,7 +56,7 @@ const postExpensesRoute = createRoute({
 app.openapi(postExpensesRoute, (c) => {
   const body = c.req.valid("json");
   const newExpense = {
-    id: Date.now(),
+    id: "1",
     description: body.description,
     amount: body.amount,
     category: body.category,

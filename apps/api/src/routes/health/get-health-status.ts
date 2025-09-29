@@ -1,11 +1,13 @@
 import { OpenAPIHono, createRoute } from "@hono/zod-openapi";
 import { HealthResponseSchema } from "@hono_expense_tracker/schemas";
-import { z } from "zod";
+import { z } from "@hono/zod-openapi";
+import { healthTags } from "../../config/openapi-tags";
 
 export const app = new OpenAPIHono();
 const healthStatusRoute = createRoute({
   method: "get",
   path: "/",
+  tags: healthTags,
   responses: {
     200: {
       content: {

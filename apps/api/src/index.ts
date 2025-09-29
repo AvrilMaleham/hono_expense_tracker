@@ -6,7 +6,9 @@ import { OpenAPIHono } from "@hono/zod-openapi";
 import { app as healthCheckApp } from "./routes/health/get-health-check";
 import { app as healthStatusApp } from "./routes/health/get-health-status";
 import { app as getExpensesApp } from "./routes/expenses/get-expenses";
+import { app as getExpenseByIdApp } from "./routes/expenses/get-expense-by-id";
 import { app as postExpensesApp } from "./routes/expenses/post-expenses";
+import { app as deleteExpensesApp } from "./routes/expenses/delete-expenses";
 
 const app = new OpenAPIHono();
 
@@ -35,11 +37,13 @@ app.use(
 // Mount the routes
 app.route("/health/check", healthCheckApp);
 app.route("/health/status", healthStatusApp);
-app.route("/expenses", getExpensesApp);
-app.route("/expenses", postExpensesApp);
+app.route("/expenses/get", getExpensesApp);
+app.route("/expenses/get", getExpenseByIdApp);
+app.route("/expenses/post", postExpensesApp);
+app.route("/expenses/delete", deleteExpensesApp);
 
 // The openapi.json will be available at /doc
-app.doc("/doc", {
+app.doc31("/doc", {
   openapi: "3.0.0",
   info: {
     version: "1.0.0",

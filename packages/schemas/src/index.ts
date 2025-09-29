@@ -1,9 +1,9 @@
 // Shared schema definitions for the expense tracker
-import { z } from "zod";
+import { z } from "@hono/zod-openapi";
 
 // Zod schemas for validation and type inference
 export const ExpenseSchema = z.object({
-  id: z.number(),
+  id: z.string(),
   description: z.string(),
   amount: z.number(),
   category: z.string(),
@@ -18,7 +18,7 @@ export const CreateExpenseSchema = z.object({
 });
 
 export const ExpenseIdSchema = z.object({
-  id: z.coerce.number(),
+  id: z.string(),
 });
 
 export const HealthResponseSchema = z.object({

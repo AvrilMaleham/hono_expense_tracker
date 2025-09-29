@@ -10,11 +10,12 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.19.2",
-    "@hono_expense_tracker/schemas": "workspace:*",
     "@hono/swagger-ui": "^0.4.0",
+    "@hono/zod-openapi": "^1.1.3",
     "@hono/zod-validator": "^0.2.1",
+    "@hono_expense_tracker/schemas": "workspace:*",
     "hono": "^4.9.6",
-    "zod": "^3.22.4"
+    "zod": "^4.1.11"
   },
   "devDependencies": {
     "@types/bun": "latest",
