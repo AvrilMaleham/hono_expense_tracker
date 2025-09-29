@@ -1,7 +1,10 @@
 import { createRoute } from "@hono/zod-openapi";
 import { z } from "@hono/zod-openapi";
 import type { Context } from "hono";
-import { ExpenseIdSchema } from "@hono_expense_tracker/schemas";
+import {
+  ExpenseIdSchema,
+  DeleteExpenseResponseSchema,
+} from "@hono_expense_tracker/schemas";
 import { expenseTags } from "../../config/openapi-tags";
 
 const deleteExpenseRoute = createRoute({
@@ -17,9 +20,7 @@ const deleteExpenseRoute = createRoute({
     200: {
       content: {
         "application/json": {
-          schema: z.object({
-            message: z.string(),
-          }),
+          schema: DeleteExpenseResponseSchema,
           example: {
             message: "Expense 1 deleted successfully",
           },

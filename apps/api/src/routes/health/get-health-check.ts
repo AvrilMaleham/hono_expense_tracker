@@ -1,6 +1,7 @@
 import { createRoute } from "@hono/zod-openapi";
 import { z } from "@hono/zod-openapi";
 import type { Context } from "hono";
+import { HealthCheckResponseSchema } from "@hono_expense_tracker/schemas";
 import { healthTags } from "../../config/openapi-tags";
 
 const healthCheckRoute = createRoute({
@@ -13,10 +14,7 @@ const healthCheckRoute = createRoute({
     200: {
       content: {
         "application/json": {
-          schema: z.object({
-            message: z.string(),
-            timestamp: z.string(),
-          }),
+          schema: HealthCheckResponseSchema,
           example: {
             message: "Hono API is running!",
             timestamp: "2024-01-15T10:30:00.000Z",

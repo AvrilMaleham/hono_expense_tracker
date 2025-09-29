@@ -1,7 +1,7 @@
 import { createRoute } from "@hono/zod-openapi";
 import { z } from "@hono/zod-openapi";
 import type { Context } from "hono";
-import { ExpenseSchema } from "@hono_expense_tracker/schemas";
+import { ExpensesListResponseSchema } from "@hono_expense_tracker/schemas";
 import { expenseTags } from "../../config/openapi-tags";
 
 const getExpensesRoute = createRoute({
@@ -14,9 +14,7 @@ const getExpensesRoute = createRoute({
     200: {
       content: {
         "application/json": {
-          schema: z.object({
-            expenses: z.array(ExpenseSchema),
-          }),
+          schema: ExpensesListResponseSchema,
           example: {
             expenses: [
               {

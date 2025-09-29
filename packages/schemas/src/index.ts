@@ -26,15 +26,32 @@ export const HealthResponseSchema = z.object({
   uptime: z.number(),
 });
 
+// Response schemas
+export const ExpensesListResponseSchema = z.object({
+  expenses: z.array(ExpenseSchema),
+});
+
+export const ExpenseResponseSchema = z.object({
+  expense: ExpenseSchema,
+});
+
+export const CreateExpenseResponseSchema = z.object({
+  message: z.string(),
+  expense: ExpenseSchema,
+});
+
+export const DeleteExpenseResponseSchema = z.object({
+  message: z.string(),
+});
+
+export const HealthCheckResponseSchema = z.object({
+  message: z.string(),
+  timestamp: z.string(),
+});
+
 // TypeScript types inferred from Zod schemas
 export type Expense = z.infer<typeof ExpenseSchema>;
 export type CreateExpenseRequest = z.infer<typeof CreateExpenseSchema>;
-export type HealthResponse = z.infer<typeof HealthResponseSchema>;
-
-// Response types
-export interface ExpensesResponse {
-  expenses: Expense[];
-}
 
 export interface ApiError {
   error: string;
