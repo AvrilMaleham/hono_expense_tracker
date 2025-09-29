@@ -1,7 +1,6 @@
 import { createRoute } from "@hono/zod-openapi";
 import { HealthResponseSchema } from "@hono_expense_tracker/schemas";
 import { z } from "@hono/zod-openapi";
-import type { Context } from "hono";
 import { healthTags } from "../../config/openapi-tags";
 
 const healthStatusRoute = createRoute({

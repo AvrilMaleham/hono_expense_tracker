@@ -1,6 +1,5 @@
 import { createRoute } from "@hono/zod-openapi";
 import { z } from "@hono/zod-openapi";
-import type { Context } from "hono";
 import {
   CreateExpenseSchema,
   ExpenseSchema,

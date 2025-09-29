@@ -61,6 +61,8 @@ app.notFound((c) => {
 
 const port = process.env.PORT || 3000;
 
+export type AppType = typeof app;
+
 export default {
   port,
   fetch: app.fetch,
