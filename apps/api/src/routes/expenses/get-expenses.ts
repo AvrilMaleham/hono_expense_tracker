@@ -2,6 +2,7 @@ import { createRoute } from "@hono/zod-openapi";
 import type { Context } from "hono";
 import { ExpensesListResponseSchema } from "@hono_expense_tracker/schemas";
 import { expenseTags } from "../../config/openapi-tags";
+import { errorResponses } from "../../config/openapi-common-responses";
 
 const getExpensesRoute = createRoute({
   method: "get",
@@ -36,6 +37,7 @@ const getExpensesRoute = createRoute({
       },
       description: "Retrieve all expenses",
     },
+    ...errorResponses,
   },
 });
 

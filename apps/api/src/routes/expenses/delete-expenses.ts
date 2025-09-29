@@ -5,6 +5,7 @@ import {
   DeleteExpenseResponseSchema,
 } from "@hono_expense_tracker/schemas";
 import { expenseTags } from "../../config/openapi-tags";
+import { errorResponses } from "../../config/openapi-common-responses";
 
 const deleteExpenseRoute = createRoute({
   method: "delete",
@@ -27,6 +28,7 @@ const deleteExpenseRoute = createRoute({
       },
       description: "Expense deleted successfully",
     },
+    ...errorResponses,
   },
 });
 

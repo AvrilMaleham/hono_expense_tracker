@@ -2,6 +2,7 @@ import { createRoute } from "@hono/zod-openapi";
 import type { Context } from "hono";
 import { HealthResponseSchema } from "@hono_expense_tracker/schemas";
 import { healthTags } from "../../config/openapi-tags";
+import { errorResponses } from "../../config/openapi-common-responses";
 
 const healthStatusRoute = createRoute({
   method: "get",
@@ -22,6 +23,7 @@ const healthStatusRoute = createRoute({
       },
       description: "Detailed health status retrieved successfully",
     },
+    ...errorResponses,
   },
 });
 

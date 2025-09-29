@@ -49,10 +49,12 @@ export const HealthCheckResponseSchema = z.object({
   timestamp: z.string(),
 });
 
+// Error schemas
+export const ApiErrorSchema = z.object({
+  error: z.string(),
+});
+
 // TypeScript types inferred from Zod schemas
 export type Expense = z.infer<typeof ExpenseSchema>;
 export type CreateExpenseRequest = z.infer<typeof CreateExpenseSchema>;
-
-export interface ApiError {
-  error: string;
-}
+export type ApiError = z.infer<typeof ApiErrorSchema>;

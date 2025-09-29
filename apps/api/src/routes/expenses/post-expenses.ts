@@ -5,6 +5,7 @@ import {
   CreateExpenseResponseSchema,
 } from "@hono_expense_tracker/schemas";
 import { expenseTags } from "../../config/openapi-tags";
+import { errorResponses } from "../../config/openapi-common-responses";
 const postExpensesRoute = createRoute({
   method: "post",
   path: "/",
@@ -45,6 +46,7 @@ const postExpensesRoute = createRoute({
       },
       description: "Expense created successfully",
     },
+    ...errorResponses,
   },
 });
 

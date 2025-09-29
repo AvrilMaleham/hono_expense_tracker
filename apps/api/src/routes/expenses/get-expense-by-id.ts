@@ -5,6 +5,7 @@ import {
   ExpenseResponseSchema,
 } from "@hono_expense_tracker/schemas";
 import { expenseTags } from "../../config/openapi-tags";
+import { errorResponses } from "../../config/openapi-common-responses";
 
 const getExpenseByIdRoute = createRoute({
   method: "get",
@@ -33,6 +34,7 @@ const getExpenseByIdRoute = createRoute({
       },
       description: "Expense details",
     },
+    ...errorResponses,
   },
 });
 
