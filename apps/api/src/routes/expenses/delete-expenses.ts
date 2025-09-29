@@ -6,6 +6,7 @@ import {
 } from "@hono_expense_tracker/schemas";
 import { expenseTags } from "../../config/openapi-tags";
 import { errorResponses } from "../../config/openapi-common-responses";
+import type { HonoEnv } from "../../config/hono-context";
 
 const deleteExpenseRoute = createRoute({
   method: "delete",
@@ -32,14 +33,18 @@ const deleteExpenseRoute = createRoute({
   },
 });
 
-const deleteExpenseHandler = (c: any) => {
-  const { id } = c.req.valid("param");
+const deleteExpenseHandler = (c: Context<HonoEnv>) => {
+  const id = c.req.param("id");
+  const db = c.get("db");
 
-  const numericId = parseInt(id, 10);
+  const response = db.deleteExpense(id);
 
-  return c.json({
-    message: `Expense ${numericId} deleted successfully`,
-  });
+  if (!response) {
+    return c.json({ error: "Expense not found" }, 404);
+  }
+
+  const validatedResponse = DeleteExpenseResponseSchema.parse(response);
+  return c.json(validatedResponse, 200);
 };
 
 export const deleteExpenseEndpoint = {

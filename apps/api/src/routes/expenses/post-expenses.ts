@@ -6,6 +6,7 @@ import {
 } from "@hono_expense_tracker/schemas";
 import { expenseTags } from "../../config/openapi-tags";
 import { errorResponses } from "../../config/openapi-common-responses";
+import type { HonoEnv } from "../../config/hono-context";
 const postExpensesRoute = createRoute({
   method: "post",
   path: "/",
@@ -50,22 +51,14 @@ const postExpensesRoute = createRoute({
   },
 });
 
-const postExpensesHandler = (c: any) => {
-  const body = c.req.valid("json");
-  const newExpense = {
-    id: "1",
-    description: body.description,
-    amount: body.amount,
-    category: body.category,
-    date: body.date,
-  };
-  return c.json(
-    {
-      message: "Expense created",
-      expense: newExpense,
-    },
-    201
-  );
+const postExpensesHandler = async (c: Context<HonoEnv>) => {
+  const body = await c.req.json();
+  const db = c.get("db");
+
+  const response = db.createExpense(body);
+  const validatedResponse = CreateExpenseResponseSchema.parse(response);
+
+  return c.json(validatedResponse, 201);
 };
 
 export const postExpensesEndpoint = { postExpensesRoute, postExpensesHandler };

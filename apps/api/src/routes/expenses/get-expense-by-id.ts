@@ -6,6 +6,7 @@ import {
 } from "@hono_expense_tracker/schemas";
 import { expenseTags } from "../../config/openapi-tags";
 import { errorResponses } from "../../config/openapi-common-responses";
+import type { HonoEnv } from "../../config/hono-context";
 
 const getExpenseByIdRoute = createRoute({
   method: "get",
@@ -38,18 +39,18 @@ const getExpenseByIdRoute = createRoute({
   },
 });
 
-const getExpenseByIdHandler = (c: any) => {
-  const { id } = c.req.valid("param");
+const getExpenseByIdHandler = (c: Context<HonoEnv>) => {
+  const id = c.req.param("id");
+  const db = c.get("db");
 
-  const foundExpense = {
-    id,
-    description: "Coffee",
-    amount: 4.5,
-    category: "Food",
-    date: "2024-01-15",
-  };
+  const response = db.getExpenseById(id);
 
-  return c.json({ expense: foundExpense }, 200);
+  if (!response) {
+    return c.json({ error: "Expense not found" }, 404);
+  }
+
+  const validatedResponse = ExpenseResponseSchema.parse(response);
+  return c.json(validatedResponse, 200);
 };
 
 export const getExpenseByIdEndpoint = {
