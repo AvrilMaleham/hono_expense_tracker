@@ -3,12 +3,13 @@ import { swaggerUI } from "@hono/swagger-ui";
 import { logger } from "hono/logger";
 import type { ApiError } from "@hono_expense_tracker/schemas";
 import { OpenAPIHono } from "@hono/zod-openapi";
-import { app as healthCheckApp } from "./routes/health/get-health-check";
-import { app as healthStatusApp } from "./routes/health/get-health-status";
-import { app as getExpensesApp } from "./routes/expenses/get-expenses";
-import { app as getExpenseByIdApp } from "./routes/expenses/get-expense-by-id";
-import { app as postExpensesApp } from "./routes/expenses/post-expenses";
-import { app as deleteExpensesApp } from "./routes/expenses/delete-expenses";
+import { healthCheckApp, healthStatusApp } from "./routes/health";
+import {
+  getExpensesApp,
+  getExpenseByIdApp,
+  postExpensesApp,
+  deleteExpensesApp,
+} from "./routes/expenses";
 
 const app = new OpenAPIHono();
 
