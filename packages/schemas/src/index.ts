@@ -3,7 +3,7 @@ import { z } from "@hono/zod-openapi";
 
 // Zod schemas for validation and type inference
 export const ExpenseSchema = z.object({
-  id: z.string(),
+  id: z.number(),
   description: z.string(),
   amount: z.number(),
   category: z.string(),
