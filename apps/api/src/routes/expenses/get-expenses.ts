@@ -19,14 +19,14 @@ const getExpensesRoute = createRoute({
           example: {
             expenses: [
               {
-                id: "1",
+                id: 1,
                 description: "Coffee",
                 amount: 4.5,
                 category: "Food",
                 date: "2024-01-15",
               },
               {
-                id: "2",
+                id: 1,
                 description: "Gas",
                 amount: 45.0,
                 category: "Transportation",

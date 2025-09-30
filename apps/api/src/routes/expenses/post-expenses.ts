@@ -36,7 +36,7 @@ const postExpensesRoute = createRoute({
           example: {
             message: "Expense created",
             expense: {
-              id: "1",
+              id: 1,
               description: "Coffee",
               amount: 4.5,
               category: "Food",

@@ -1,28 +1,28 @@
 // Mock database with in-memory storage
 let mockExpenses = [
   {
-    id: "1",
+    id: 1,
     description: "Coffee",
     amount: 4.5,
     category: "Food",
     date: "2024-01-15",
   },
   {
-    id: "2",
+    id: 2,
     description: "Gas",
     amount: 45.0,
     category: "Transportation",
     date: "2024-01-14",
   },
   {
-    id: "3",
+    id: 3,
     description: "Groceries",
     amount: 85.3,
     category: "Food",
     date: "2024-01-13",
   },
   {
-    id: "4",
+    id: 4,
     description: "Electricity",
     amount: 100.0,
     category: "Bills",
@@ -39,7 +39,8 @@ export const getExpense = () => {
 
 // Get expense by ID
 export const getExpenseById = (id: string) => {
-  const expense = mockExpenses.find((exp) => exp.id === id);
+  const idNumber = Number.parseInt(id);
+  const expense = mockExpenses.find((exp) => exp.id === idNumber);
   return expense ? { expense } : null;
 };
 
@@ -52,11 +53,11 @@ export const createExpense = (expenseData: {
 }) => {
   const maxId =
     mockExpenses.length > 0
-      ? Math.max(...mockExpenses.map((exp) => parseInt(exp.id)))
+      ? Math.max(...mockExpenses.map((exp) => exp.id))
       : 0;
 
   const newExpense = {
-    id: (maxId + 1).toString(),
+    id: maxId + 1,
     ...expenseData,
   };
   mockExpenses.push(newExpense);
@@ -64,7 +65,8 @@ export const createExpense = (expenseData: {
 };
 
 export const deleteExpense = (id: string) => {
-  const expenseIndex = mockExpenses.findIndex((exp) => exp.id === id);
+  const idNumber = Number.parseInt(id);
+  const expenseIndex = mockExpenses.findIndex((exp) => exp.id === idNumber);
   if (expenseIndex === -1) {
     return null;
   }

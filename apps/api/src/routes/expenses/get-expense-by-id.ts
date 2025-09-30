@@ -24,7 +24,7 @@ const getExpenseByIdRoute = createRoute({
           schema: ExpenseResponseSchema,
           example: {
             expense: {
-              id: "1",
+              id: 1,
               description: "Coffee",
               amount: 4.5,
               category: "Food",
