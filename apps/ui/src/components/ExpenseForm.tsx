@@ -27,10 +27,10 @@ export function ExpenseForm() {
   };
 
   return (
-    <section className="add-expense-section">
+    <section>
       <h2>Add New Expense</h2>
-      <form onSubmit={handleSubmit} className="expense-form">
-        <div className="form-row">
+      <form onSubmit={handleSubmit}>
+        <div>
           <input
             type="text"
             placeholder="Description"
@@ -55,7 +55,7 @@ export function ExpenseForm() {
             required
           />
         </div>
-        <div className="form-row">
+        <div>
           <input
             type="text"
             placeholder="Category"
@@ -74,15 +74,11 @@ export function ExpenseForm() {
             required
           />
         </div>
-        <button
-          type="submit"
-          disabled={createExpenseMutation.isPending}
-          className="submit-btn"
-        >
+        <button type="submit" disabled={createExpenseMutation.isPending}>
           {createExpenseMutation.isPending ? "Adding..." : "Add Expense"}
         </button>
         {createExpenseMutation.isError && (
-          <div className="error-message">
+          <div>
             {createExpenseMutation.error?.message || "Failed to create expense"}
           </div>
         )}

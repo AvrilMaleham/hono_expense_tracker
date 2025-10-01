@@ -22,18 +22,17 @@ export function ExpenseItem({ expense }: ExpenseItemProps) {
   };
 
   return (
-    <div className="expense-item">
-      <div className="expense-main">
+    <div>
+      <div>
         <h3>{expense.description}</h3>
-        <span className="expense-amount">{formatCurrency(expense.amount)}</span>
+        <span>{formatCurrency(expense.amount)}</span>
       </div>
-      <div className="expense-details">
-        <span className="expense-category">{expense.category}</span>
-        <span className="expense-date">{expense.date}</span>
+      <div>
+        <span>{expense.category}</span>
+        <span>{expense.date}</span>
         <button
           onClick={handleDelete}
           disabled={deleteExpenseMutation.isPending}
-          className="delete-btn"
         >
           {deleteExpenseMutation.isPending ? "Deleting..." : "Delete"}
         </button>

@@ -5,25 +5,21 @@ export function ExpenseList() {
   const { data, isLoading, error } = useExpenses();
 
   if (isLoading) {
-    return <div className="loading">Loading expenses...</div>;
+    return <div>Loading expenses...</div>;
   }
 
   if (error) {
-    return (
-      <div className="error-message">
-        {error.message || "Failed to load expenses"}
-      </div>
-    );
+    return <div>{error.message || "Failed to load expenses"}</div>;
   }
 
   if (!data?.expenses || data.expenses.length === 0) {
-    return <div className="no-expenses">No expenses found. Add one above!</div>;
+    return <div>No expenses found. Add one above!</div>;
   }
 
   return (
-    <section className="expenses-section">
+    <section>
       <h2>Your Expenses ({data.expenses.length})</h2>
-      <div className="expenses-list">
+      <div>
         {data.expenses.map((expense) => (
           <ExpenseItem key={expense.id} expense={expense} />
         ))}

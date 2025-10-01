@@ -33,55 +33,53 @@ export function Dashboard() {
     .slice(0, 5);
 
   return (
-    <div className="dashboard">
-      <div className="dashboard-header">
+    <div>
+      <div>
         <h1>💰 Expense Tracker Dashboard</h1>
         <p>Track your expenses with Hono API + React + TanStack</p>
       </div>
 
-      <div className="dashboard-stats">
-        <div className="stat-card">
+      <div>
+        <div>
           <h3>Total Expenses</h3>
-          <div className="stat-value">{expenses.length}</div>
+          <div>{expenses.length}</div>
         </div>
-        <div className="stat-card">
+        <div>
           <h3>Total Amount</h3>
-          <div className="stat-value">
+          <div>
             {new Intl.NumberFormat("en-US", {
               style: "currency",
               currency: "USD",
             }).format(totalAmount)}
           </div>
         </div>
-        <div className="stat-card">
+        <div>
           <h3>Categories</h3>
-          <div className="stat-value">{Object.keys(categoryTotals).length}</div>
+          <div>{Object.keys(categoryTotals).length}</div>
         </div>
       </div>
 
-      <div className="dashboard-content">
-        <div className="recent-expenses">
+      <div>
+        <div>
           <h2>Recent Expenses</h2>
           {recentExpenses.length === 0 ? (
             <p>No expenses yet. Add your first expense!</p>
           ) : (
-            <div className="recent-list">
+            <div>
               {recentExpenses.map((expense) => (
-                <div key={expense.id} className="recent-item">
-                  <div className="recent-main">
-                    <span className="recent-description">
-                      {expense.description}
-                    </span>
-                    <span className="recent-amount">
+                <div key={expense.id}>
+                  <div>
+                    <span>{expense.description}</span>
+                    <span>
                       {new Intl.NumberFormat("en-US", {
                         style: "currency",
                         currency: "USD",
                       }).format(expense.amount)}
                     </span>
                   </div>
-                  <div className="recent-details">
-                    <span className="recent-category">{expense.category}</span>
-                    <span className="recent-date">{expense.date}</span>
+                  <div>
+                    <span>{expense.category}</span>
+                    <span>{expense.date}</span>
                   </div>
                 </div>
               ))}
@@ -89,16 +87,16 @@ export function Dashboard() {
           )}
         </div>
 
-        <div className="category-breakdown">
+        <div>
           <h2>Spending by Category</h2>
           {Object.keys(categoryTotals).length === 0 ? (
             <p>No categories yet.</p>
           ) : (
-            <div className="category-list">
+            <div>
               {Object.entries(categoryTotals).map(([category, amount]) => (
-                <div key={category} className="category-item">
-                  <span className="category-name">{category}</span>
-                  <span className="category-amount">
+                <div key={category}>
+                  <span>{category}</span>
+                  <span>
                     {new Intl.NumberFormat("en-US", {
                       style: "currency",
                       currency: "USD",

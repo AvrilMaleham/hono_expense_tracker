@@ -5,7 +5,7 @@ import { ExpenseList } from "../components/ExpenseList";
 function ExpensesPage() {
   return (
     <div>
-      <div className="page-header">
+      <div>
         <h1>Expenses Management</h1>
         <p>Add and manage your expenses</p>
       </div>
