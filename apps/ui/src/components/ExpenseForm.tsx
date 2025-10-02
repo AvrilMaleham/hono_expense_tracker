@@ -63,7 +63,7 @@ export function ExpenseForm() {
                 onChange={(e) => field.handleChange(e.target.value)}
               />
               {field.state.meta.errors ? (
-                <span className="text-red-500">
+                <span className="text-destructive">
                   {field.state.meta.errors[0]?.message}
                 </span>
               ) : null}
@@ -84,7 +84,7 @@ export function ExpenseForm() {
                 onChange={(e) => field.handleChange(Number(e.target.value))}
               />
               {field.state.meta.errors ? (
-                <span className="text-red-500">
+                <span className="text-destructive">
                   {field.state.meta.errors[0]?.message}
                 </span>
               ) : null}
@@ -104,7 +104,7 @@ export function ExpenseForm() {
                 onChange={(e) => field.handleChange(e.target.value)}
               />
               {field.state.meta.errors ? (
-                <span className="text-red-500">
+                <span className="text-destructive">
                   {field.state.meta.errors[0]?.message}
                 </span>
               ) : null}
@@ -124,7 +124,7 @@ export function ExpenseForm() {
                 onChange={(e) => field.handleChange(e.target.value)}
               />
               {field.state.meta.errors ? (
-                <span className="text-red-500">
+                <span className="text-destructive">
                   {field.state.meta.errors[0]?.message}
                 </span>
               ) : null}
