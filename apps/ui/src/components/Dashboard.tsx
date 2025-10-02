@@ -1,4 +1,4 @@
-import { useExpenses } from "../hooks/useExpenses";
+import { useExpenses } from "../hooks/use-expenses";
 
 export function Dashboard() {
   const { data, isLoading, error } = useExpenses();

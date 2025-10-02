@@ -1,4 +1,4 @@
-import { useDeleteExpense } from "../hooks/useExpenses";
+import { useDeleteExpense } from "../hooks/use-expenses";
 import type { Expense } from "@hono_expense_tracker/schemas";
 import { Button } from "./ui/button";
 import {

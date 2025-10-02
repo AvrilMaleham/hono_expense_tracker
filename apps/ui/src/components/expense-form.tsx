@@ -4,7 +4,7 @@ import { CreateExpenseSchema } from "@hono_expense_tracker/schemas";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useCreateExpense } from "@/hooks/useExpenses";
+import { useCreateExpense } from "@/hooks/use-expenses";
 
 export function ExpenseForm() {
   const createExpenseMutation = useCreateExpense();

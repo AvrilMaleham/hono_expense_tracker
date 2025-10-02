@@ -1,5 +1,5 @@
-import { useExpenses } from "../hooks/useExpenses";
-import { ExpenseItem } from "./ExpenseItem";
+import { useExpenses } from "../hooks/use-expenses";
+import { ExpenseItem } from "./expense-item";
 import type { Expense } from "@hono_expense_tracker/schemas";
 
 export function ExpenseList() {
