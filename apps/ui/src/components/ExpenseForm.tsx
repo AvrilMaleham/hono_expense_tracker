@@ -42,8 +42,8 @@ export function ExpenseForm() {
   });
 
   return (
-    <>
-      <h2>Add New Expense</h2>
+    <div className="mx-auto max-w-md w-full my-8">
+      <h2 className="text-xl font-semibold mb-4">Add New Expense</h2>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -53,8 +53,13 @@ export function ExpenseForm() {
       >
         <form.Field name="description">
           {(field) => (
-            <div>
-              <label htmlFor={field.name}>Description</label>
+            <div className="mb-4">
+              <label
+                htmlFor={field.name}
+                className="text-sm font-semibold text-secondary-foreground"
+              >
+                Description
+              </label>
               <Input
                 id={field.name}
                 name={field.name}
@@ -73,13 +78,17 @@ export function ExpenseForm() {
 
         <form.Field name="amount">
           {(field) => (
-            <div>
-              <label htmlFor={field.name}>Amount</label>
+            <div className="mb-4">
+              <label
+                htmlFor={field.name}
+                className="text-sm font-semibold text-secondary-foreground"
+              >
+                Amount
+              </label>
               <Input
                 id={field.name}
                 name={field.name}
                 type="number"
-                className="mr-1 w-24 bg-background"
                 value={field.state.value}
                 onChange={(e) => field.handleChange(Number(e.target.value))}
               />
@@ -94,8 +103,13 @@ export function ExpenseForm() {
 
         <form.Field name="category">
           {(field) => (
-            <div>
-              <label htmlFor={field.name}>Category</label>
+            <div className="mb-4">
+              <label
+                htmlFor={field.name}
+                className="text-sm font-semibold text-secondary-foreground"
+              >
+                Category
+              </label>
               <Input
                 id={field.name}
                 name={field.name}
@@ -114,8 +128,13 @@ export function ExpenseForm() {
 
         <form.Field name="date">
           {(field) => (
-            <div>
-              <label htmlFor={field.name}>Date</label>
+            <div className="mb-4">
+              <label
+                htmlFor={field.name}
+                className="text-sm font-semibold text-secondary-foreground"
+              >
+                Date
+              </label>
               <Input
                 id={field.name}
                 name={field.name}
@@ -136,6 +155,6 @@ export function ExpenseForm() {
           {createExpenseMutation.isPending ? "Adding..." : "Add Expense"}
         </Button>
       </form>
-    </>
+    </div>
   );
 }
