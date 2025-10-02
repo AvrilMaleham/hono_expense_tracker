@@ -11,10 +11,10 @@ export const ExpenseSchema = z.object({
 });
 
 export const CreateExpenseSchema = z.object({
-  description: z.string(),
-  amount: z.number(),
-  category: z.string(),
-  date: z.string(),
+  description: z.string().min(1),
+  amount: z.number().int().positive().min(1),
+  category: z.string().min(1),
+  date: z.string().min(1),
 });
 
 export const ExpenseIdSchema = z.object({

@@ -54,9 +54,10 @@ export function ExpenseForm() {
         <form.Field name="description">
           {(field) => (
             <div>
-              <label htmlFor="description">Description</label>
+              <label htmlFor={field.name}>Description</label>
               <Input
-                id="description"
+                id={field.name}
+                name={field.name}
                 placeholder="Description"
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
@@ -73,9 +74,10 @@ export function ExpenseForm() {
         <form.Field name="amount">
           {(field) => (
             <div>
-              <label htmlFor="amount">Amount</label>
+              <label htmlFor={field.name}>Amount</label>
               <Input
-                id="amount"
+                id={field.name}
+                name={field.name}
                 type="number"
                 className="mr-1 w-24 bg-background"
                 value={field.state.value}
@@ -93,9 +95,10 @@ export function ExpenseForm() {
         <form.Field name="category">
           {(field) => (
             <div>
-              <label htmlFor="category">Category</label>
+              <label htmlFor={field.name}>Category</label>
               <Input
-                id="category"
+                id={field.name}
+                name={field.name}
                 placeholder="Category"
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
@@ -112,9 +115,10 @@ export function ExpenseForm() {
         <form.Field name="date">
           {(field) => (
             <div>
-              <label htmlFor="date">Date</label>
+              <label htmlFor={field.name}>Date</label>
               <Input
-                id="date"
+                id={field.name}
+                name={field.name}
                 type="date"
                 value={field.state.value}
                 onChange={(e) => field.handleChange(e.target.value)}
