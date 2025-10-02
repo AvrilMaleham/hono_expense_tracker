@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { getCategoryColor } from "@/lib/constants";
 
 interface ExpenseItemProps {
   expense: Expense;
@@ -25,11 +26,11 @@ export function ExpenseItem({ expense }: ExpenseItemProps) {
   };
 
   return (
-    <Card className="mb-4">
+    <Card className={`mb-4 ${getCategoryColor(expense.category)}`}>
       <CardHeader>
         <CardTitle>{expense.description}</CardTitle>
         <CardDescription>${expense.amount}</CardDescription>
-        <CardAction>{expense.category}</CardAction>
+        <CardAction className="capitalize">{expense.category}</CardAction>
       </CardHeader>
       <CardContent>
         <p>{expense.date}</p>

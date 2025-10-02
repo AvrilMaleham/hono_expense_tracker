@@ -29,7 +29,7 @@
   --chart-2: oklch(0.6 0.118 184.704); /* sky-50 */
   --chart-3: oklch(0.398 0.07 227.392); /* indigo-500 */
   --chart-4: oklch(0.828 0.189 84.429); /* indigo-50 */
-  --chart-5: oklch(0.769 0.188 70.08); /* fushia-500 */
+  --chart-5: oklch(0.769 0.188 70.08); /* fuchsia-500 */
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0 0); /* neutral-100 */
   --sidebar-foreground: oklch(0.145 0 0); /* neutral-800 */
@@ -41,13 +41,13 @@
   --sidebar-ring: oklch(0.708 0 0); /* neutral-400 */
 
   /* Additional colour theming */
-  --chart-6: oklch(0.977 0.017 320.058); /* fushia-50 */
+  --chart-6: oklch(0.977 0.017 320.058); /* fuchsia-50 */
   --sky-primary: oklch(0.685 0.169 237.323); /* sky-500 */
-  --sky-secondary: oklch(68.5% 0.169 237.323); /* sky-50 */
+  --sky-secondary: oklch(0.977 0.013 236.62); /* sky-50 */
   --indigo-primary: oklch(0.585 0.233 277.117); /* indigo-500 */
   --indigo-secondary: oklch(0.962 0.018 272.314); /* indigo-50 */
-  --fushia-primary: oklch(0.667 0.295 322.15); /* fushia-500 */
-  --fushia-secondary: oklch(0.977 0.017 320.058); /* fushia-50 */
+  --fuchsia-primary: oklch(0.667 0.295 322.15); /* fuchsia-500 */
+  --fuchsia-secondary: oklch(0.977 0.017 320.058); /* fuchsia-50 */
   --amber-primary: oklch(0.769 0.188 70.08); /* amber-500 */
   --amber-secondary: oklch(0.987 0.022 95.277) /* amber-50 */;
 }
@@ -137,8 +137,8 @@
   --color-sky-secondary: var(--sky-secondary);
   --color-indigo-primary: var(--indigo-primary);
   --color-indigo-secondary: var(--indigo-secondary);
-  --color-fushia-primary: var(--fushia-primary);
-  --color-fushia-secondary: var(--fushia-secondary);
+  --color-fuchsia-primary: var(--fuchsia-primary);
+  --color-fuchsia-secondary: var(--fuchsia-secondary);
   --color-amber-primary: var(--amber-primary);
   --color-amber-secondary: var(--amber-secondary);
 
