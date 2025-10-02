@@ -1,5 +1,15 @@
 import { useDeleteExpense } from "../hooks/useExpenses";
 import type { Expense } from "@hono_expense_tracker/schemas";
+import { Button } from "./ui/button";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 interface ExpenseItemProps {
   expense: Expense;
@@ -14,29 +24,24 @@ export function ExpenseItem({ expense }: ExpenseItemProps) {
     }
   };
 
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat("en-US", {
-      style: "currency",
-      currency: "USD",
-    }).format(amount);
-  };
-
   return (
-    <div>
-      <div>
-        <h3>{expense.description}</h3>
-        <span>{formatCurrency(expense.amount)}</span>
-      </div>
-      <div>
-        <span>{expense.category}</span>
-        <span>{expense.date}</span>
-        <button
+    <Card>
+      <CardHeader>
+        <CardTitle>{expense.description}</CardTitle>
+        <CardDescription>${expense.amount}</CardDescription>
+        <CardAction>{expense.category}</CardAction>
+      </CardHeader>
+      <CardContent>
+        <p>{expense.date}</p>
+      </CardContent>
+      <CardFooter>
+        <Button
           onClick={handleDelete}
           disabled={deleteExpenseMutation.isPending}
         >
           {deleteExpenseMutation.isPending ? "Deleting..." : "Delete"}
-        </button>
-      </div>
-    </div>
+        </Button>
+      </CardFooter>
+    </Card>
   );
 }
