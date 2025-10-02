@@ -13,9 +13,17 @@ function ExpensesPage() {
         </h2>
       </div>
       <Separator />
-      <ExpenseForm />
-      <Separator />
-      <ExpenseList />
+      <div className="flex flex-col lg:flex-row gap-8 p-8">
+        <div className="flex-1">
+          <ExpenseForm />
+        </div>
+        <div className="lg:hidden">
+          <Separator />
+        </div>
+        <div className="flex-1">
+          <ExpenseList />
+        </div>
+      </div>
     </div>
   );
 }

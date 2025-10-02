@@ -40,7 +40,7 @@ export function ExpenseForm() {
   });
 
   return (
-    <section className="mx-auto max-w-md w-full my-8">
+    <section className="w-full">
       <h2 className="text-lg font-semibold mb-4">Add New Expense</h2>
       <form
         onSubmit={(e) => {
