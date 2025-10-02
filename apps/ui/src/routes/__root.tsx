@@ -13,19 +13,33 @@ export const Route = createRootRoute({
   component: () => (
     <QueryClientProvider client={queryClient}>
       <div>
-        <header>
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuLink asChild>
-                  <Link to="/">Dashboard</Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link to="/expenses">Expenses</Link>
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+        <header className="border-b">
+          <div className="px-4 py-4">
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      to="/"
+                      className="px-4 py-2 rounded-md hover:bg-accent font-semibold"
+                    >
+                      Dashboard
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      to="/expenses"
+                      className="px-4 py-2 rounded-md hover:bg-accent font-semibold"
+                    >
+                      Expenses
+                    </Link>
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
         </header>
         <main>
           <Outlet />
