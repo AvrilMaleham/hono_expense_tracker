@@ -4,7 +4,17 @@ import { CreateExpenseSchema } from "@hono_expense_tracker/schemas";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useCreateExpense } from "@/hooks/use-expenses";
+
+import { EXPENSE_CATEGORIES } from "@/lib/constants";
 
 export function ExpenseForm() {
   const createExpenseMutation = useCreateExpense();
@@ -17,7 +27,7 @@ export function ExpenseForm() {
       date: "",
     },
     validators: {
-      onChange: CreateExpenseSchema,
+      onSubmit: CreateExpenseSchema,
     },
     onSubmit: ({ value }) => {
       createExpenseMutation.mutate(value, {
@@ -108,13 +118,24 @@ export function ExpenseForm() {
               >
                 Category
               </label>
-              <Input
-                id={field.name}
+              <Select
                 name={field.name}
-                placeholder="Category"
                 value={field.state.value}
-                onChange={(e) => field.handleChange(e.target.value)}
-              />
+                onValueChange={(value) => field.handleChange(value)}
+              >
+                <SelectTrigger id={field.name} className="w-full">
+                  <SelectValue placeholder="Select..." />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    {EXPENSE_CATEGORIES.map((category) => (
+                      <SelectItem key={category.value} value={category.value}>
+                        {category.label}
+                      </SelectItem>
+                    ))}
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
               {field.state.meta.errors ? (
                 <span className="text-destructive">
                   {field.state.meta.errors[0]?.message}

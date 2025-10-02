@@ -133,14 +133,14 @@
 
   /* Additional colour theme tokens */
   --color-chart-6: var(--chart-6);
-  --color-trigger-primary: var(--trigger-primary);
-  --color-trigger-secondary: var(--trigger-secondary);
-  --color-filter-primary: var(--filter-primary);
-  --color-filter-secondary: var(--filter-secondary);
-  --color-action-primary: var(--action-primary);
-  --color-action-secondary: var(--action-secondary);
-  --color-tool-primary: var(--tool-primary);
-  --color-tool-secondary: var(--tool-secondary);
+  --color-sky-primary: var(--sky-primary);
+  --color-sky-secondary: var(--sky-secondary);
+  --color-indigo-primary: var(--indigo-primary);
+  --color-indigo-secondary: var(--indigo-secondary);
+  --color-fushia-primary: var(--fushia-primary);
+  --color-fushia-secondary: var(--fushia-secondary);
+  --color-amber-primary: var(--amber-primary);
+  --color-amber-secondary: var(--amber-secondary);
 
   /* Customised tailwind design tokens */
   --font-body: "Inter";
