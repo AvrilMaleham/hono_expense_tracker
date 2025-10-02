@@ -39,6 +39,9 @@ export function ExpenseItem({ expense }: ExpenseItemProps) {
         <Button
           onClick={handleDelete}
           disabled={deleteExpenseMutation.isPending}
+          variant={
+            expense.category as "food" | "transport" | "housing" | "other"
+          }
         >
           {deleteExpenseMutation.isPending ? "Deleting..." : "Delete"}
         </Button>
