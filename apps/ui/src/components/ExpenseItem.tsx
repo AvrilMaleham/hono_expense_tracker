@@ -25,7 +25,7 @@ export function ExpenseItem({ expense }: ExpenseItemProps) {
   };
 
   return (
-    <Card>
+    <Card className="mb-4">
       <CardHeader>
         <CardTitle>{expense.description}</CardTitle>
         <CardDescription>${expense.amount}</CardDescription>

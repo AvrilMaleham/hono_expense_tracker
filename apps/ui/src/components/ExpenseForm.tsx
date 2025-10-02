@@ -40,7 +40,7 @@ export function ExpenseForm() {
   });
 
   return (
-    <div className="mx-auto max-w-md w-full my-8">
+    <section className="mx-auto max-w-md w-full">
       <h2 className="text-xl font-semibold mb-4">Add New Expense</h2>
       <form
         onSubmit={(e) => {
@@ -153,6 +153,6 @@ export function ExpenseForm() {
           {createExpenseMutation.isPending ? "Adding..." : "Add Expense"}
         </Button>
       </form>
-    </div>
+    </section>
   );
 }

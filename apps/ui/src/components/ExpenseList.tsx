@@ -1,5 +1,6 @@
 import { useExpenses } from "../hooks/useExpenses";
 import { ExpenseItem } from "./ExpenseItem";
+import type { Expense } from "@hono_expense_tracker/schemas";
 
 export function ExpenseList() {
   const { data, isLoading, error } = useExpenses();
@@ -17,10 +18,12 @@ export function ExpenseList() {
   }
 
   return (
-    <section>
-      <h2>Your Expenses ({data.expenses.length})</h2>
+    <section className="mx-auto max-w-xl w-full my-8">
+      <h2 className="text-xl font-semibold mb-4">
+        Your Expenses ({data.expenses.length})
+      </h2>
       <div>
-        {data.expenses.map((expense) => (
+        {data.expenses.map((expense: Expense) => (
           <ExpenseItem key={expense.id} expense={expense} />
         ))}
       </div>
