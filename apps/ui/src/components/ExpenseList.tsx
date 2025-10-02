@@ -19,7 +19,7 @@ export function ExpenseList() {
 
   return (
     <section className="mx-auto max-w-xl w-full my-8">
-      <h2 className="text-xl font-semibold mb-4">
+      <h2 className="text-lg font-semibold mb-4">
         Your Expenses ({data.expenses.length})
       </h2>
       <div>
