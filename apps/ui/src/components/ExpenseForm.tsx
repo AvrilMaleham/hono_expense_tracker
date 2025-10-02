@@ -1,5 +1,3 @@
-"use client";
-
 import { useForm } from "@tanstack/react-form";
 import { toast } from "sonner";
 import { CreateExpenseSchema } from "@hono_expense_tracker/schemas";
