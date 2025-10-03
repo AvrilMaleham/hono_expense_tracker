@@ -19,12 +19,12 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
-        food: "bg-amber-primary text-primary-foreground hover:bg-amber-primary/90",
-        transport:
-          "bg-sky-primary text-primary-foreground hover:bg-sky-primary/90",
-        housing:
+        amber:
+          "bg-amber-primary text-primary-foreground hover:bg-amber-primary/90",
+        sky: "bg-sky-primary text-primary-foreground hover:bg-sky-primary/90",
+        indigo:
           "bg-indigo-primary text-primary-foreground hover:bg-indigo-primary/90",
-        other:
+        fucshia:
           "bg-fuchsia-primary text-primary-foreground hover:bg-fuchsia-primary/90",
       },
       size: {

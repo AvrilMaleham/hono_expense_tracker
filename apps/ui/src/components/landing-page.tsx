@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { DollarSign, BarChart3, Zap } from "lucide-react";
 
 export function LandingPage() {
   return (
@@ -23,7 +24,7 @@ export function LandingPage() {
             expenses, and stay organized. Everything you need in one place.
           </p>
           <div className="flex gap-4 justify-center">
-            <Button asChild size="lg" variant="transport">
+            <Button asChild size="lg" variant="sky">
               <Link to="/expenses">Get Started</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
@@ -37,19 +38,7 @@ export function LandingPage() {
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <div className="w-12 h-12 bg-sky-secondary rounded-lg flex items-center justify-center mb-4">
-                <svg
-                  className="w-6 h-6 text-sky-primary"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
-                  />
-                </svg>
+                <DollarSign className="w-6 h-6 text-sky-primary" />
               </div>
               <CardTitle>Expense Tracking</CardTitle>
               <CardDescription>
@@ -58,7 +47,7 @@ export function LandingPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button asChild variant="transport" className="w-full">
+              <Button asChild variant="sky" className="w-full">
                 <Link to="/expenses">Manage Expenses</Link>
               </Button>
             </CardContent>
@@ -67,19 +56,7 @@ export function LandingPage() {
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <div className="w-12 h-12 bg-indigo-secondary rounded-lg flex items-center justify-center mb-4">
-                <svg
-                  className="w-6 h-6 text-indigo-primary"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                  />
-                </svg>
+                <BarChart3 className="w-6 h-6 text-indigo-primary" />
               </div>
               <CardTitle>Expense Analytics</CardTitle>
               <CardDescription>
@@ -88,7 +65,7 @@ export function LandingPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button asChild variant="housing" className="w-full">
+              <Button asChild variant="indigo" className="w-full">
                 <Link to="/expenses">View Analytics</Link>
               </Button>
             </CardContent>
@@ -97,19 +74,7 @@ export function LandingPage() {
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <div className="w-12 h-12 bg-fuchsia-secondary rounded-lg flex items-center justify-center mb-4">
-                <svg
-                  className="w-6 h-6 text-fuchsia-primary"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
-                </svg>
+                <Zap className="w-6 h-6 text-fuchsia-primary" />
               </div>
               <CardTitle>Quick Actions</CardTitle>
               <CardDescription>
@@ -118,7 +83,7 @@ export function LandingPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button asChild variant="other" className="w-full">
+              <Button asChild variant="fucshia" className="w-full">
                 <Link to="/expenses">Quick Add</Link>
               </Button>
             </CardContent>
@@ -161,7 +126,7 @@ export function LandingPage() {
             Join thousands of users who are already managing their expenses
             efficiently.
           </p>
-          <Button asChild size="lg" variant="housing">
+          <Button asChild size="lg" variant="indigo">
             <Link to="/expenses">Start Tracking Now</Link>
           </Button>
         </div>
