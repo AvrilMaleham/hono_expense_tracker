@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator";
 
 function ExpensesPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-sky-secondary/20 via-indigo-secondary/20 to-fuchsia-secondary/20">
         <div className="container mx-auto px-4 py-12">

@@ -270,7 +270,7 @@
     @apply border-border outline-ring/50 font-body;
   }
   body {
-    @apply bg-background text-foreground text-base h-screen;
+    @apply bg-gradient-to-r from-background to-muted text-foreground text-base h-screen;
   }
   main {
     @apply h-full;

@@ -13,7 +13,7 @@ export const Route = createRootRoute({
   component: () => (
     <QueryClientProvider client={queryClient}>
       <div>
-        <header className="bg-gradient-to-r from-background via-muted/30 to-background border-b border-border/50 backdrop-blur-sm">
+        <header className="bg-gradient-to-r from-background to-muted border-b border-border/50">
           <div className="container mx-auto px-4 py-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
