@@ -23,7 +23,7 @@ export const Route = createRootRoute({
                       to="/"
                       className="px-4 py-2 rounded-md hover:bg-accent font-semibold"
                     >
-                      Dashboard
+                      Home
                     </Link>
                   </NavigationMenuLink>
                 </NavigationMenuItem>
