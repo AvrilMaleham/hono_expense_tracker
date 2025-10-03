@@ -32,7 +32,7 @@ export const Route = createRootRoute({
                     <NavigationMenuLink asChild>
                       <Link
                         to="/"
-                        className="px-4 py-2 font-medium text-sm text-muted-foreground hover:text-foreground transition-colors"
+                        className="px-4 py-2 font-medium text-sm text-muted-foreground hover:text-foreground"
                       >
                         Home
                       </Link>
@@ -42,7 +42,7 @@ export const Route = createRootRoute({
                     <NavigationMenuLink asChild>
                       <Link
                         to="/expenses"
-                        className="px-4 py-2 font-medium text-sm text-muted-foreground hover:text-foreground transition-colors"
+                        className="px-4 py-2 font-medium text-sm text-muted-foreground hover:text-foreground"
                       >
                         Expenses
                       </Link>

@@ -1,6 +1,7 @@
 import { useForm } from "@tanstack/react-form";
 import { toast } from "sonner";
 import { CreateExpenseSchema } from "@hono_expense_tracker/schemas";
+import { Plus } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -52,8 +53,8 @@ export function ExpenseForm() {
   return (
     <section className="w-full">
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-8 h-8 bg-gradient-to-br from-sky-primary to-indigo-primary rounded-lg flex items-center justify-center">
-          <span className="text-primary-foreground font-bold text-sm">+</span>
+        <div className="w-8 h-8 bg-sky-secondary rounded-lg flex items-center justify-center">
+          <Plus className="w-4 h-4 text-sky-primary" />
         </div>
         <h2 className="text-xl font-semibold text-foreground">
           Add New Expense
