@@ -1,7 +1,7 @@
-import { HeroSection } from "./landing/hero-section";
-import { FeaturesGrid } from "./landing/features-grid";
-import { StatsSection } from "./landing/stats-section";
-import { CallToActionSection } from "./landing/call-to-action-section";
+import { HeroSection } from "./hero-section";
+import { FeaturesGrid } from "./features-grid";
+import { StatsSection } from "./stats-section";
+import { CallToActionSection } from "./call-to-action-section";
 
 export function LandingPage() {
   return (

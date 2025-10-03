@@ -1,6 +1,6 @@
-import { useDeleteExpense } from "../hooks/use-expenses";
+import { useDeleteExpense } from "@/hooks/expenses/use-expenses";
 import type { Expense } from "@hono_expense_tracker/schemas";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardAction,
@@ -39,9 +39,7 @@ export function ExpenseItem({ expense }: ExpenseItemProps) {
         <Button
           onClick={handleDelete}
           disabled={deleteExpenseMutation.isPending}
-          variant={
-            expense.category as "food" | "transport" | "housing" | "other"
-          }
+          variant={expense.category as "amber" | "sky" | "indigo" | "fucshia"}
         >
           {deleteExpenseMutation.isPending ? "Deleting..." : "Delete"}
         </Button>

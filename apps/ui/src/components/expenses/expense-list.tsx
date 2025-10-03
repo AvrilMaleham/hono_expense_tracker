@@ -1,4 +1,4 @@
-import { useExpenses } from "../hooks/use-expenses";
+import { useExpenses } from "@/hooks/expenses/use-expenses";
 import { ExpenseItem } from "./expense-item";
 import type { Expense } from "@hono_expense_tracker/schemas";
 

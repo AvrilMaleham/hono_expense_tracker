@@ -12,7 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useCreateExpense } from "@/hooks/use-expenses";
+import { useCreateExpense } from "@/hooks/expenses/use-expenses";
 
 import { EXPENSE_CATEGORIES } from "@/lib/constants";
 
