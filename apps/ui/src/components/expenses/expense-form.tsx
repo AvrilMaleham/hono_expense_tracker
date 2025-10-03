@@ -51,7 +51,14 @@ export function ExpenseForm() {
 
   return (
     <section className="w-full">
-      <h2 className="text-lg font-semibold mb-4">Add New Expense</h2>
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-8 h-8 bg-gradient-to-br from-sky-primary to-indigo-primary rounded-lg flex items-center justify-center">
+          <span className="text-primary-foreground font-bold text-sm">+</span>
+        </div>
+        <h2 className="text-xl font-semibold text-foreground">
+          Add New Expense
+        </h2>
+      </div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -170,7 +177,13 @@ export function ExpenseForm() {
           )}
         </form.Field>
 
-        <Button type="submit" disabled={createExpenseMutation.isPending}>
+        <Button
+          type="submit"
+          disabled={createExpenseMutation.isPending}
+          variant="sky"
+          size="lg"
+          className="w-full"
+        >
           {createExpenseMutation.isPending ? "Adding..." : "Add Expense"}
         </Button>
       </form>

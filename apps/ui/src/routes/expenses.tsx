@@ -5,23 +5,38 @@ import { Separator } from "@/components/ui/separator";
 
 function ExpensesPage() {
   return (
-    <div>
-      <div className="m-8">
-        <h1 className="text-xl font-semibold">Expenses Management</h1>
-        <h2 className="text-lg font-semibold text-secondary-foreground">
-          Add and manage your expenses
-        </h2>
+    <div className="min-h-screen bg-gradient-to-br from-background to-muted">
+      {/* Hero Section */}
+      <div className="bg-gradient-to-r from-sky-secondary/20 via-indigo-secondary/20 to-fuchsia-secondary/20">
+        <div className="container mx-auto px-4 py-12">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-foreground mb-4">
+              Expense Management
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Track your spending, categorize expenses, and gain insights into
+              your financial habits.
+            </p>
+          </div>
+        </div>
       </div>
-      <Separator />
-      <div className="flex flex-col lg:flex-row gap-8 p-8">
-        <div className="flex-1">
-          <ExpenseForm />
-        </div>
-        <div className="lg:hidden">
-          <Separator />
-        </div>
-        <div className="flex-1">
-          <ExpenseList />
+
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Form Section */}
+          <div className="space-y-6">
+            <div className="bg-card border border-border rounded-xl p-6 shadow-sm">
+              <ExpenseForm />
+            </div>
+          </div>
+
+          {/* List Section */}
+          <div className="space-y-6">
+            <div className="bg-card border border-border rounded-xl p-6 shadow-sm">
+              <ExpenseList />
+            </div>
+          </div>
         </div>
       </div>
     </div>
