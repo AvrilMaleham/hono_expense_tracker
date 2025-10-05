@@ -58,7 +58,8 @@ export function ExpenseList() {
         <div>
           {data.expenses
             .sort(
-              (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+              (a: Expense, b: Expense) =>
+                new Date(b.date).getTime() - new Date(a.date).getTime()
             )
             .map((expense: Expense) => (
               <ExpenseItem key={expense.id} expense={expense} />
