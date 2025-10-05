@@ -2,6 +2,7 @@ import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "../lib/query-client";
+import { Toaster } from "sonner";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -51,6 +52,7 @@ export const Route = createRootRoute({
           <Outlet />
         </main>
       </div>
+      <Toaster />
       <TanStackRouterDevtools />
     </QueryClientProvider>
   ),
