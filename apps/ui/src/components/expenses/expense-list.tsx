@@ -1,7 +1,7 @@
 import { useExpenses } from "@/hooks/expenses/use-expenses";
 import { ExpenseItem } from "./expense-item";
 import type { Expense } from "@hono_expense_tracker/schemas";
-import { List } from "lucide-react";
+import { List, DollarSign } from "lucide-react";
 
 export function ExpenseList() {
   const { data, isLoading, error } = useExpenses();
@@ -35,8 +35,8 @@ export function ExpenseList() {
     if (!data?.expenses || data.expenses.length === 0) {
       return (
         <div className="text-center py-12">
-          <div className="w-16 h-16 bg-gradient-to-br from-muted to-muted/50 rounded-full mx-auto mb-4 flex items-center justify-center">
-            <span className="text-2xl">💸</span>
+          <div className="w-16 h-16 bg-indigo-secondary rounded-full mx-auto mb-4 flex items-center justify-center">
+            <DollarSign className="w-8 h-8 text-indigo-primary" />
           </div>
           <h3 className="text-lg font-semibold text-foreground mb-2">
             No expenses yet
