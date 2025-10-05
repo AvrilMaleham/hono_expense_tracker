@@ -13,19 +13,13 @@ export const Route = createRootRoute({
   component: () => (
     <QueryClientProvider client={queryClient}>
       <div>
-        <header className="bg-gradient-to-r from-background to-muted border-b border-border/50">
+        <header className="border-b border-border/50">
           <div className="container mx-auto px-4 py-6">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-gradient-to-br from-sky-primary to-indigo-primary rounded-lg flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-sm">
-                    PH
-                  </span>
-                </div>
-                <span className="text-xl font-bold text-foreground">
-                  Personal Hub
-                </span>
-              </div>
+              <span className="text-xl font-bold text-foreground">
+                Personal Hub
+              </span>
+
               <NavigationMenu>
                 <NavigationMenuList className="gap-2">
                   <NavigationMenuItem>

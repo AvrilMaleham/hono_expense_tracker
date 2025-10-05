@@ -6,7 +6,7 @@ function ExpensesPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-sky-secondary/20 via-indigo-secondary/20 to-fuchsia-secondary/20">
+      <div>
         <div className="container mx-auto px-4 py-12">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-foreground mb-4">
