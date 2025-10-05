@@ -24,7 +24,7 @@ const buttonVariants = cva(
         sky: "bg-sky-primary text-primary-foreground hover:bg-sky-primary/90",
         indigo:
           "bg-indigo-primary text-primary-foreground hover:bg-indigo-primary/90",
-        fucshia:
+        fuchsia:
           "bg-fuchsia-primary text-primary-foreground hover:bg-fuchsia-primary/90",
       },
       size: {
