@@ -33,15 +33,11 @@ export function ExpenseForm() {
     onSubmit: ({ value }) => {
       createExpenseMutation.mutate(value, {
         onSuccess: () => {
-          toast("You submitted the following values", {
-            description: (
-              <pre className="mt-2 w-[320px] rounded-md bg-neutral-950 p-4">
-                <code className="text-white">
-                  {JSON.stringify(value, null, 2)}
-                </code>
-              </pre>
-            ),
+          toast.success("Expense created successfully!", {
+            description: `${value.description} - $${value.amount}`,
+            duration: 4000,
           });
+          form.reset();
         },
         onError: (error) => {
           toast.error(error.message || "Failed to create expense");
