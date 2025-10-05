@@ -47,7 +47,7 @@ export function ExpenseItem({ expense }: ExpenseItemProps) {
             disabled={deleteExpenseMutation.isPending}
             variant="outline"
             size="sm"
-            className="text-destructive hover:bg-destructive hover:text-destructive-foreground"
+            className="text-destructive hover:text-destructive hover:scale-110 transition-transform"
           >
             {deleteExpenseMutation.isPending ? "..." : "×"}
           </Button>
