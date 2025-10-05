@@ -1,16 +1,12 @@
 import { useDeleteExpense } from "@/hooks/expenses/use-expenses";
 import type { Expense } from "@hono_expense_tracker/schemas";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { getCategoryColor } from "@/lib/constants";
+  getCategoryColor,
+  getCategoryPrimaryColor,
+  getCategoryBorderColor,
+} from "@/lib/constants";
 
 interface ExpenseItemProps {
   expense: Expense;
@@ -26,7 +22,9 @@ export function ExpenseItem({ expense }: ExpenseItemProps) {
   };
 
   return (
-    <Card className="mb-4 border border-border hover:shadow-md transition-shadow">
+    <Card
+      className={`mb-4 border border-border hover:shadow-md transition-shadow bg-card border-l-4 ${getCategoryBorderColor(expense.category)}`}
+    >
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
           <div className="flex-1">
@@ -37,7 +35,9 @@ export function ExpenseItem({ expense }: ExpenseItemProps) {
               <span className="font-medium text-lg text-foreground">
                 ${expense.amount}
               </span>
-              <span className="px-2 py-1 bg-secondary rounded-md text-xs font-medium capitalize">
+              <span
+                className={`px-2 py-1 ${getCategoryColor(expense.category)} text-foreground rounded-md text-xs font-medium capitalize`}
+              >
                 {expense.category}
               </span>
             </div>

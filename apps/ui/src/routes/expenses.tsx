@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ExpenseForm } from "../components/expenses/expense-form";
 import { ExpenseList } from "../components/expenses/expense-list";
-import { Separator } from "@/components/ui/separator";
 
 function ExpensesPage() {
   return (
