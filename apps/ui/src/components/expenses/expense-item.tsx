@@ -2,11 +2,7 @@ import { useDeleteExpense } from "@/hooks/expenses/use-expenses";
 import type { Expense } from "@hono_expense_tracker/schemas";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  getCategoryColor,
-  getCategoryPrimaryColor,
-  getCategoryBorderColor,
-} from "@/lib/constants";
+import { getCategoryColor, getCategoryBorderColor } from "@/lib/constants";
 
 interface ExpenseItemProps {
   expense: Expense;

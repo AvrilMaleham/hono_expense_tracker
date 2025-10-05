@@ -11,56 +11,6 @@ export function ExpenseList() {
     return data?.expenses ? `(${data.expenses.length})` : "(0)";
   };
 
-  const getContent = () => {
-    if (isLoading) {
-      return (
-        <div className="text-center py-8">
-          <div className="animate-pulse text-muted-foreground">
-            Loading expenses...
-          </div>
-        </div>
-      );
-    }
-
-    if (error) {
-      return (
-        <div className="text-center py-8">
-          <div className="text-destructive">
-            {error.message || "Failed to load expenses"}
-          </div>
-        </div>
-      );
-    }
-
-    if (!data?.expenses || data.expenses.length === 0) {
-      return (
-        <div className="text-center py-12">
-          <div className="w-16 h-16 bg-indigo-secondary rounded-full mx-auto mb-4 flex items-center justify-center">
-            <DollarSign className="w-8 h-8 text-indigo-primary" />
-          </div>
-          <h3 className="text-lg font-semibold text-foreground mb-2">
-            No expenses yet
-          </h3>
-          <p className="text-muted-foreground">
-            Add your first expense using the form on the left!
-          </p>
-        </div>
-      );
-    }
-
-    return (
-      <div>
-        {data.expenses
-          .sort(
-            (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-          )
-          .map((expense: Expense) => (
-            <ExpenseItem key={expense.id} expense={expense} />
-          ))}
-      </div>
-    );
-  };
-
   return (
     <section className="w-full">
       <div className="flex items-center gap-3 mb-6">
@@ -71,7 +21,50 @@ export function ExpenseList() {
           Your Expenses {getExpenseCount()}
         </h2>
       </div>
-      {getContent()}
+
+      {isLoading && (
+        <div className="text-center py-8">
+          <div className="animate-pulse text-muted-foreground">
+            Loading expenses...
+          </div>
+        </div>
+      )}
+
+      {error && (
+        <div className="text-center py-8">
+          <div className="text-destructive">
+            {error.message || "Failed to load expenses"}
+          </div>
+        </div>
+      )}
+
+      {!isLoading &&
+        !error &&
+        (!data?.expenses || data.expenses.length === 0) && (
+          <div className="text-center py-12">
+            <div className="w-16 h-16 bg-indigo-secondary rounded-full mx-auto mb-4 flex items-center justify-center">
+              <DollarSign className="w-8 h-8 text-indigo-primary" />
+            </div>
+            <h3 className="text-lg font-semibold text-foreground mb-2">
+              No expenses yet
+            </h3>
+            <p className="text-muted-foreground">
+              Add your first expense using the form on the left!
+            </p>
+          </div>
+        )}
+
+      {!isLoading && !error && data?.expenses && data.expenses.length > 0 && (
+        <div>
+          {data.expenses
+            .sort(
+              (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+            )
+            .map((expense: Expense) => (
+              <ExpenseItem key={expense.id} expense={expense} />
+            ))}
+        </div>
+      )}
     </section>
   );
 }
