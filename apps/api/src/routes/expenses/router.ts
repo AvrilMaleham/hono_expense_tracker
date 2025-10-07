@@ -5,23 +5,22 @@ import { postExpensesEndpoint } from "./post-expenses";
 import { deleteExpenseEndpoint } from "./delete-expenses";
 import type { HonoEnv } from "../../config/hono-context";
 
-const expensesRouter = new OpenAPIHono<HonoEnv>();
-
-expensesRouter.openapi(
-  getExpensesEndpoint.getExpensesRoute,
-  getExpensesEndpoint.getExpensesHandler
-);
-expensesRouter.openapi(
-  getExpenseByIdEndpoint.getExpenseByIdRoute,
-  getExpenseByIdEndpoint.getExpenseByIdHandler
-);
-expensesRouter.openapi(
-  postExpensesEndpoint.postExpensesRoute,
-  postExpensesEndpoint.postExpensesHandler
-);
-expensesRouter.openapi(
-  deleteExpenseEndpoint.deleteExpenseRoute,
-  deleteExpenseEndpoint.deleteExpenseHandler
-);
+const expensesRouter = new OpenAPIHono<HonoEnv>()
+  .openapi(
+    getExpensesEndpoint.getExpensesRoute,
+    getExpensesEndpoint.getExpensesHandler
+  )
+  .openapi(
+    getExpenseByIdEndpoint.getExpenseByIdRoute,
+    getExpenseByIdEndpoint.getExpenseByIdHandler
+  )
+  .openapi(
+    postExpensesEndpoint.postExpensesRoute,
+    postExpensesEndpoint.postExpensesHandler
+  )
+  .openapi(
+    deleteExpenseEndpoint.deleteExpenseRoute,
+    deleteExpenseEndpoint.deleteExpenseHandler
+  );
 
 export const expensesRoutes = expensesRouter;

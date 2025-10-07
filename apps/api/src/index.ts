@@ -16,10 +16,6 @@ app.use(async (c, next) => {
   await next();
 });
 
-// Mount the routes
-app.route("/api/health", healthRoutes);
-app.route("/api/expenses", expensesRoutes);
-
 // The openapi.json will be available at /doc
 app.doc31("/doc", {
   openapi: "3.0.0",
@@ -32,24 +28,29 @@ app.doc31("/doc", {
 // Add Swagger UI
 app.get("/docs", swaggerUI({ url: "/doc" }));
 
+// Mount routes with chaining for type inference
+const appWithRoutes = app
+  .route("/api/health", healthRoutes)
+  .route("/api/expenses", expensesRoutes);
+
 // Error handling
-app.onError((err, c) => {
+appWithRoutes.onError((err, c) => {
   console.error("Error:", err);
   const errorResponse: ApiError = { error: "Internal Server Error" };
   return c.json(errorResponse, 500);
 });
 
 // 404 handler
-app.notFound((c) => {
+appWithRoutes.notFound((c) => {
   const errorResponse: ApiError = { error: "Not Found" };
   return c.json(errorResponse, 404);
 });
 
 const port = process.env.PORT || 3000;
 
-export type AppType = typeof app;
+export type AppType = typeof appWithRoutes;
 
 export default {
   port,
-  fetch: app.fetch,
+  fetch: appWithRoutes.fetch,
 };
