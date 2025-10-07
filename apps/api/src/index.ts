@@ -1,4 +1,3 @@
-import { cors } from "hono/cors";
 import { swaggerUI } from "@hono/swagger-ui";
 import { logger } from "hono/logger";
 import type { ApiError } from "@hono_expense_tracker/schemas";
@@ -10,27 +9,7 @@ import type { HonoEnv } from "./config/hono-context";
 
 const app = new OpenAPIHono<HonoEnv>();
 
-// Add CORS middleware
-const allowedOrigins =
-  process.env.NODE_ENV === "production"
-    ? [
-        process.env.CORS_ORIGIN || "https://yourapp.com",
-        "https://www.yourapp.com",
-      ]
-    : [
-        process.env.CORS_ORIGIN || "http://localhost:5173",
-        "http://localhost:3000",
-      ];
-
-app.use(
-  "*",
-  logger(),
-  cors({
-    origin: allowedOrigins,
-    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowHeaders: ["Content-Type", "Authorization"],
-  })
-);
+app.use("*", logger());
 
 app.use(async (c, next) => {
   c.set("db", createDatabaseInterface());
@@ -38,8 +17,8 @@ app.use(async (c, next) => {
 });
 
 // Mount the routes
-app.route("/health", healthRoutes);
-app.route("/expenses", expensesRoutes);
+app.route("/api/health", healthRoutes);
+app.route("/api/expenses", expensesRoutes);
 
 // The openapi.json will be available at /doc
 app.doc31("/doc", {
