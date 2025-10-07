@@ -10,7 +10,7 @@ import type { HonoEnv } from "../../config/hono-context";
 
 const deleteExpenseRoute = createRoute({
   method: "delete",
-  path: "/{id}",
+  path: "/:id",
   summary: "Delete Expense",
   description: "Delete an expense by its ID",
   tags: expenseTags,
