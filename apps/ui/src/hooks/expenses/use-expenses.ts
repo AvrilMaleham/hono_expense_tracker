@@ -6,11 +6,9 @@ export function useExpenses() {
   return useQuery({
     queryKey: ["expenses"],
     queryFn: async () => {
-      console.log("Fetching from:", "/expenses");
       const res = await api.expenses.$get({
         param: {},
       });
-      console.log("Response:", res);
       if (!res.ok) throw new Error("Failed to fetch expenses");
       return res.json();
     },

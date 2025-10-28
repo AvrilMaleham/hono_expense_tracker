@@ -53,7 +53,7 @@ export const Route = createRootRoute({
         </main>
       </div>
       <Toaster
-        position="top-right"
+        position="bottom-left"
         toastOptions={{
           style: {
             background: "hsl(var(--card))",
