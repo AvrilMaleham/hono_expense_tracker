@@ -37,7 +37,7 @@ export function useCreateExpense() {
 
   return useMutation({
     mutationFn: async (data: CreateExpenseRequest) => {
-      const res = await api.expenses.index.$post({ form: data });
+      const res = await api.expenses.index.$post({ json: data });
       if (!res.ok) {
         throw new Error("Failed to create expense");
       }

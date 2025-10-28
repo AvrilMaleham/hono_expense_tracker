@@ -1,5 +1,4 @@
 import { swaggerUI } from "@hono/swagger-ui";
-import { cors } from "hono/cors";
 import { logger } from "hono/logger";
 import type { ApiError } from "@hono_expense_tracker/schemas";
 import { OpenAPIHono } from "@hono/zod-openapi";
@@ -9,16 +8,6 @@ import { createDatabaseInterface } from "./services/database/database-interface"
 import type { HonoEnv } from "./config/hono-context";
 
 const app = new OpenAPIHono<HonoEnv>();
-
-// Add CORS middleware
-app.use(
-  "/*",
-  cors({
-    origin: "http://localhost:5173", // Your frontend URL
-    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowHeaders: ["Content-Type"],
-  })
-);
 
 app.use("*", logger());
 
