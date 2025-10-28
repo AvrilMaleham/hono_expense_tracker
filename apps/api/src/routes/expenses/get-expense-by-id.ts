@@ -10,7 +10,7 @@ import type { HonoEnv } from "../../config/hono-context";
 
 const getExpenseByIdRoute = createRoute({
   method: "get",
-  path: "/:id",
+  path: "/{id}",
   summary: "Get Expense by ID",
   description: "Retrieve a specific expense by its ID",
   tags: expenseTags,

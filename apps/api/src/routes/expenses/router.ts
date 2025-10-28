@@ -11,12 +11,12 @@ const expensesRouter = new OpenAPIHono<HonoEnv>()
     getExpensesEndpoint.getExpensesHandler
   )
   .openapi(
-    getExpenseByIdEndpoint.getExpenseByIdRoute,
-    getExpenseByIdEndpoint.getExpenseByIdHandler
-  )
-  .openapi(
     postExpensesEndpoint.postExpensesRoute,
     postExpensesEndpoint.postExpensesHandler
+  )
+  .openapi(
+    getExpenseByIdEndpoint.getExpenseByIdRoute,
+    getExpenseByIdEndpoint.getExpenseByIdHandler
   )
   .openapi(
     deleteExpenseEndpoint.deleteExpenseRoute,
