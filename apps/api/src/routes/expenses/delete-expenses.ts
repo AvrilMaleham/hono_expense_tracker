@@ -1,5 +1,6 @@
 import { createRoute } from "@hono/zod-openapi";
 import type { Context } from "hono";
+import type { RouteHandler } from "@hono/zod-openapi";
 import {
   ExpenseIdSchema,
   DeleteExpenseResponseSchema,
@@ -33,7 +34,10 @@ const deleteExpenseRoute = createRoute({
   },
 });
 
-const deleteExpenseHandler = (c: Context<HonoEnv>) => {
+const deleteExpenseHandler: RouteHandler<
+  typeof deleteExpenseRoute,
+  HonoEnv
+> = async (c) => {
   const id = c.req.param("id");
   const db = c.get("db");
 

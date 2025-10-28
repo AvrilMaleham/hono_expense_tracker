@@ -1,5 +1,6 @@
 import { createRoute } from "@hono/zod-openapi";
 import type { Context } from "hono";
+import type { RouteHandler } from "@hono/zod-openapi";
 import { ExpensesListResponseSchema } from "@hono_expense_tracker/schemas";
 import { expenseTags } from "../../config/openapi-tags";
 import { errorResponses } from "../../config/openapi-common-responses";
@@ -42,7 +43,10 @@ const getExpensesRoute = createRoute({
   },
 });
 
-const getExpensesHandler = (c: Context<HonoEnv>) => {
+const getExpensesHandler: RouteHandler<
+  typeof getExpensesRoute,
+  HonoEnv
+> = async (c) => {
   const db = c.get("db");
 
   const response = db.getExpense();

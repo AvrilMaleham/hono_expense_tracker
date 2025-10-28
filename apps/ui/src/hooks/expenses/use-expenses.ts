@@ -7,7 +7,7 @@ export function useExpenses() {
     queryKey: ["expenses"],
     queryFn: async () => {
       console.log("Fetching from:", "/expenses");
-      const res = await api.expenses.index.$get({
+      const res = await api.expenses.$get({
         param: {},
       });
       console.log("Response:", res);
@@ -37,7 +37,7 @@ export function useCreateExpense() {
 
   return useMutation({
     mutationFn: async (data: CreateExpenseRequest) => {
-      const res = await api.expenses.index.$post({ json: data });
+      const res = await api.expenses.$post({ json: data });
       if (!res.ok) {
         throw new Error("Failed to create expense");
       }

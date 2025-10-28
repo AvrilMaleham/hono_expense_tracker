@@ -1,5 +1,6 @@
 import { createRoute } from "@hono/zod-openapi";
 import type { Context } from "hono";
+import type { RouteHandler } from "@hono/zod-openapi";
 import {
   CreateExpenseSchema,
   CreateExpenseResponseSchema,
@@ -51,8 +52,12 @@ const postExpensesRoute = createRoute({
   },
 });
 
-const postExpensesHandler = async (c: Context<HonoEnv>) => {
-  const body = await c.req.json();
+const postExpensesHandler: RouteHandler<
+  typeof postExpensesRoute,
+  HonoEnv
+> = async (c) => {
+  const body = c.req.valid("json");
+
   const db = c.get("db");
 
   const response = db.createExpense(body);
